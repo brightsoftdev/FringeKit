@@ -1,0 +1,49 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+  </head>
+
+
+  <body class="logged_in page-blob  env-production ">
+    Welcome to FringeKit homepage
+
+Introduction
+FringeKit is a static cocoa framework in Objective-C that only supports iOS. The main purpose of this framework is to integrate common function and combine 3rd party framework. Developer can focus on the logic handler but not coding details.
+FringeKit is not alone. It’s integrated below frameworks:
+ASIHttp network framework
+SBJson json phrase framework
+JSONKit
+MBProgressHUD
+FMDatabase sqlite framework
+Three20 (to be continue…)
+
+this is only my personal study project...hope it would become more and more stronger
+
+Object Mapping
+support transfer from local json string map to a custom entity
+support transfer from remote json string map to a custome entity
+can make a relationship to do mapping
+
+Categories & Extension
+Foundation category
+UIKit category
+
+Utilities
+email sender
+sms sender
+keychain helper
+
+UI controls & common functions
+Base Navigation controller
+Base Tabbar controller
+Base Tabbar item
+Multi-column view controller
+Index view controller
+TTNavigation
+  </body>
+</html>
+
