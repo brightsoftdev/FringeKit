@@ -1,3 +1,4 @@
+
 Welcome to FringeKit homepage
 
 Introduction
@@ -13,8 +14,8 @@ Three20 (to be continue…)
 this is only my personal study project...hope it would become more and more stronger
 
 Object Mapping
-support from local json string map to a custom entity
-support from remote json string map to a custome entity
+support transfer from local json string map to a custom entity
+support transfer from remote json string map to a custome entity
 can make a relationship to do mapping
 
 Categories & Extension
