@@ -1,0 +1,19 @@
+Welcome to FringeKit homepage
+
+Introduction
+FringeKit is a static cocoa framework in Objective-C that only supports iOS. The main purpose of this framework is to integrate common function and combine 3rd party framework. Developer can focus on the logic handler but not coding details.
+FringeKit is not alone. It’s integrated below frameworks:
+ASIHttp network framework
+SBJson json phrase framework
+JSONKit
+MBProgressHUD
+FMDatabase sqlite framework
+Three20 (to be continue…)
+
+Object Mapping
+
+Categories & Extension
+
+Utilities
+
+UI controls & common functions
