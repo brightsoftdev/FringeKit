@@ -10,8 +10,11 @@
 #import "OOCLTabBarItem.h"
 #import "OOCLNavigationController.h"
 #import "AppConfig.h"
+#import "Category.h"
 
 @implementation OOCLTabBarController
+
+@synthesize hiddenString = _hiddenString;
 
 - (id)init
 {
@@ -26,35 +29,42 @@
 - (void) buildUITabBarController{
     
     NSDictionary *tabBarDictionary = [[AppConfig sharedInstance] tabBarConfig];
-    NSMutableArray *controllers = [[NSMutableArray alloc] init];
+    NSMutableArray *controllers = [[NSMutableArray alloc] initWithCapacity:[tabBarDictionary count]];
+
+    __block int index = [tabBarDictionary count] - 1;
     [tabBarDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        //NSLog(@"key: %@", key);
+        unichar hiddenChar = [_hiddenString characterAtIndex:index];
+        
         NSDictionary *indexDictionary = obj;
         NSString *viewControllerClassName = [indexDictionary objectForKey:@"DefaultViewController"];
-        //NSLog(@"viewControllerClassName: %@", viewControllerClassName);
         Class viewControllerClass = NSClassFromString(viewControllerClassName);
         UIViewController *indexViewController = [[viewControllerClass alloc] initWithNibName:viewControllerClassName bundle:nil];
                 
         indexViewController.title = [indexDictionary objectForKey:@"ViewTitle"];
         UIImage *indexTabImage = [UIImage imageNamed:[indexDictionary objectForKey:@"ImageName"]];
-        //NSLog(@"indexTabImage: %@", indexTabImage);
 
         OOCLTabBarItem *indexItem = [[OOCLTabBarItem alloc] init];
         indexItem.title = [indexDictionary objectForKey:@"BarTitle"];
-        //NSLog(@"Title: %@", indexItem.title);
         indexItem.image = indexTabImage;
         indexItem.tag = 0;  
         indexViewController.tabBarItem = indexItem;
         [indexItem release];
         
         OOCLNavigationController *indexNavigationController = [[OOCLNavigationController alloc] initWithRootViewController: indexViewController];
-        [controllers addObject:indexNavigationController];
+        if (hiddenChar == '1') {
+            [controllers insertObject:indexNavigationController atIndex:0];
+        }
         [indexViewController release];
         [indexNavigationController release];
-
+        index-- ;        
     }];
     
     [self setViewControllers:controllers];
+    [controllers release];
+}
+
+- (void) dealloc{
+    [super dealloc];
 }
 
 @end

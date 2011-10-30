@@ -10,8 +10,10 @@
 #import <UIKit/UIKit.h>
 
 @interface OOCLTabBarController : UITabBarController{
-    
+    NSString *hiddenString;
 }
+
+@property (nonatomic, assign) NSString *hiddenString;
 
 - (void) buildUITabBarController;
 
