@@ -8,7 +8,7 @@
   </head>
 
 
-  <body class="logged_in page-blob  env-production ">
+  <body>
     Welcome to FringeKit homepage
 
 Introduction
