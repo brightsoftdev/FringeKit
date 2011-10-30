@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface OOCLTabBarController : UITabBarController
+@interface OOCLTabBarController : UITabBarController{
+    
+}
+
+- (void) buildUITabBarController;
 
 @end

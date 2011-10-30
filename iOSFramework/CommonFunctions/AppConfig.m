@@ -16,6 +16,7 @@ static AppConfig *sharedInstance;
 @synthesize interfaceConfig = _interfaceConfig;
 @synthesize uiLayoutConfig = _uiLayoutConfig;
 @synthesize alertMessageConfig = _alertMessageConfig;
+@synthesize tabBarConfig = _tabBarConfig;
 
 - (id)init
 {
@@ -33,6 +34,7 @@ static AppConfig *sharedInstance;
         _interfaceConfig =  [[NSBundle mainBundle] objectForInfoDictionaryKey:@"InterfaceConfig"];
         _uiLayoutConfig =  [[NSBundle mainBundle] objectForInfoDictionaryKey:@"UILayerConfig"];
         _alertMessageConfig =  [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AlertMessageConfig"];
+        _tabBarConfig =  [[NSBundle mainBundle] objectForInfoDictionaryKey:@"TabBarConfig"];
     }
 	return self;
 }
@@ -49,6 +51,9 @@ static AppConfig *sharedInstance;
     }
     if ([configName isEqualToString:@"AlertMessageConfig"]) {
         return [_alertMessageConfig objectForKey:keyString];
+    }
+    if ([configName isEqualToString:@"TabBarConfig"]) {
+        return [_tabBarConfig objectForKey:keyString];
     }
     return @"";
 }

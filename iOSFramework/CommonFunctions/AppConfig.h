@@ -13,12 +13,14 @@
     NSDictionary *interfaceConfig;
     NSDictionary *uiLayoutConfig;
     NSDictionary *alertMessageConfig;
+    NSDictionary *tabBarConfig;
 }
 
 @property(nonatomic, retain) NSDictionary *applicationConfig;
 @property(nonatomic, retain) NSDictionary *interfaceConfig;
 @property(nonatomic, retain) NSDictionary *uiLayoutConfig;
 @property(nonatomic, retain) NSDictionary *alertMessageConfig;
+@property(nonatomic, retain) NSDictionary *tabBarConfig;
 
 + (AppConfig *) sharedInstance;
 
