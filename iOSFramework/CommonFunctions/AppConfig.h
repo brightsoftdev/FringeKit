@@ -16,11 +16,11 @@
     NSDictionary *tabBarConfig;
 }
 
-@property(nonatomic, retain) NSDictionary *applicationConfig;
-@property(nonatomic, retain) NSDictionary *interfaceConfig;
-@property(nonatomic, retain) NSDictionary *uiLayoutConfig;
-@property(nonatomic, retain) NSDictionary *alertMessageConfig;
-@property(nonatomic, retain) NSDictionary *tabBarConfig;
+@property(nonatomic, assign) NSDictionary *applicationConfig;
+@property(nonatomic, assign) NSDictionary *interfaceConfig;
+@property(nonatomic, assign) NSDictionary *uiLayoutConfig;
+@property(nonatomic, assign) NSDictionary *alertMessageConfig;
+@property(nonatomic, assign) NSDictionary *tabBarConfig;
 
 + (AppConfig *) sharedInstance;
 

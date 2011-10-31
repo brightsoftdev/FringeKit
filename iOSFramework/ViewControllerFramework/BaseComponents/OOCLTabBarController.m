@@ -27,7 +27,7 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     [self setSelectedIndex: [_disableString firstIndexForString:@"1"]];
 }
 
@@ -38,7 +38,7 @@
     if (!_disableString) {
         _disableString = @"1";
         _disableString = [_disableString paddingLeftToLength:[tabBarDictionary count] withString:@"1" startingAtIndex:0];
-        NSLog(@"hidden String: %@", _disableString);
+        NSLog(@"disable String: %@", _disableString);
     }
 
     __block int index = [tabBarDictionary count] - 1;
