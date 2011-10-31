@@ -14,9 +14,9 @@
 		4652F81514510D58009FDB0B /* RequestParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4652F81314510D58009FDB0B /* RequestParam.m */; };
 		4652F81914511769009FDB0B /* AppConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 4652F81714511769009FDB0B /* AppConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4652F81A14511769009FDB0B /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4652F81814511769009FDB0B /* AppConfig.m */; };
-		46895DAD145ED4300076F17E /* FKTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 46895DAB145ED4300076F17E /* FKTableViewCell.h */; };
+		46895DAD145ED4300076F17E /* FKTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 46895DAB145ED4300076F17E /* FKTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46895DAE145ED4300076F17E /* FKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46895DAC145ED4300076F17E /* FKTableViewCell.m */; };
-		46895DB1145ED4BD0076F17E /* FKTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 46895DAF145ED4BD0076F17E /* FKTableView.h */; };
+		46895DB1145ED4BD0076F17E /* FKTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 46895DAF145ED4BD0076F17E /* FKTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46895DB2145ED4BD0076F17E /* FKTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46895DB0145ED4BD0076F17E /* FKTableView.m */; };
 		46921D4114525A9600FA108E /* Category.h in Headers */ = {isa = PBXBuildFile; fileRef = 46921D3F14525A9600FA108E /* Category.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46921D4D14525BB700FA108E /* NSString+iOSAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = 46921D4B14525BB700FA108E /* NSString+iOSAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
