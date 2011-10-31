@@ -66,4 +66,8 @@ static AppConfig *sharedInstance;
     return sharedInstance;
 }
 
+- (void) dealloc{
+    [super dealloc];
+}
+
 @end
