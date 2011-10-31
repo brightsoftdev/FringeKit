@@ -16,6 +16,7 @@
 - (NSString *) reverseString;
 - (NSString *) trim;
 - (NSString *) firstUpcaseString;
+- (NSInteger) firstIndexForString: (NSString *) indexString;
 - (NSArray *) split: (NSString *) separatedByString;
 - (NSDate *) covertToDate;
 - (NSString *) paddingLeftToLength: (NSInteger) newLength withString:(NSString *) padString startingAtIndex:(NSUInteger) padIndex;

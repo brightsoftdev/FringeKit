@@ -53,6 +53,10 @@
 	return result;
 }
 
+- (NSInteger) firstIndexForString: (NSString *) indexString{
+    return [self rangeOfString:indexString].location;
+}
+
 - (NSArray *) split: (NSString *) separatedByString{
     return [self componentsSeparatedByString:separatedByString];
 }

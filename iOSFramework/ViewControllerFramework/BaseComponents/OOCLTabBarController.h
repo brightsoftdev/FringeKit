@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface OOCLTabBarController : UITabBarController{
-    NSString *hiddenString;
+@interface OOCLTabBarController : UITabBarController<UITabBarControllerDelegate>{
+    //disable string sample: @"1101"
+    NSString *disableString;
 }
 
-@property (nonatomic, assign) NSString *hiddenString;
+@property (nonatomic, assign) NSString *disableString;
 
 - (void) buildUITabBarController;
 
