@@ -5,6 +5,8 @@
 //  Created by macadmin on 22/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
+//https://github.com/sgonzalez/NSArray-Categories
+//
 
 #import "NSArray+iOSAddtions.h"
 
@@ -30,6 +32,28 @@
     }
     [tempCollectionArray release];
     return collection;
+}
+
+- (id)randomObject {
+	return [self objectAtIndex:[self randomIndex]];
+}
+
+- (int)randomIndex {
+	return arc4random()%[self count];
+}
+
+- (void)shuffle {
+	NSMutableArray *tmp = [NSMutableArray arrayWithArray:self];
+	for (int i=[tmp count]-1; i>0; i--) {
+		[tmp exchangeObjectAtIndex: arc4random() % (i+1) withObjectAtIndex: i];
+	}
+	self = [NSArray arrayWithArray:tmp];
+}
+
+- (NSArray *)shuffledArray {
+	NSArray *shuffledArray = [NSArray arrayWithArray:self];
+	[shuffledArray shuffle];
+	return shuffledArray;
 }
 
 @end

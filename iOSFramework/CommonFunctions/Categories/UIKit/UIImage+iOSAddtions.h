@@ -10,4 +10,11 @@
 
 @interface UIImage (iOSAddtions)
 
+- (UIImage *)croppedImage:(CGRect)bounds;
+- (UIImage *)thumbnail;
+- (UIImage *)thumbnailWithWidth:(int)twidth height:(int)theight;
+- (UIImage *)roundedCornerImage:(NSInteger)cornerSize borderSize:(NSInteger)borderSize;
+- (BOOL)hasAlpha;
+- (UIImage *)imageWithAlpha;
+- (UIImage *)transparentBorderImage:(NSUInteger)borderSize;
 @end

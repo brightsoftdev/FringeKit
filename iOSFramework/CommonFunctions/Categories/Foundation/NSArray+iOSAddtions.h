@@ -12,6 +12,11 @@
 
 - (NSArray *) groupArrayByField: (NSString *) groupString;
 
+- (id)randomObject;
+- (int)randomIndex;
+- (void)shuffle;
+- (NSArray *)shuffledArray;
+
 @end
 
 @interface NSMutableArray (iOSAddtions)
