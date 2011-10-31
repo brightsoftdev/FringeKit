@@ -185,7 +185,7 @@ static ObjectLoader *sharedObjectLoader;
         [request setRequestMethod:@"POST"];
         [request setRequestHeaders:_requestParam.requestHeader];
         [request setTimeOutSeconds:_requestParam.timeOutValue];
-        [request setPostValue:postData forKey:@"paramString"];
+        [request setPostValue:postData forKey:_requestParam.postConditionKeyName];
         [request setDelegate:self];
         [request setDidFinishSelector: requestFinishSelector];
         [request setDidFailSelector: requestFailedSelector];

@@ -7,6 +7,7 @@
 //
 
 #define DefaultTimeOut 60
+#define DEFAULT_POST_KEY @"params"
 
 #import "RequestParam.h"
 #import "AppConfig.h"
@@ -21,6 +22,7 @@
 @synthesize timeOutValue = _timeOutValue;
 @synthesize requestUrlKeyNameInConfig = _requestUrlKeyNameInConfig;
 @synthesize requestHeader = _requestHeader;
+@synthesize postConditionKeyName = _postConditionKeyName;
 
 - (id)init
 {
@@ -29,6 +31,7 @@
         _userID = [[AppConfig sharedInstance] getValueForKey:@"ServiceRequestUserName" withConfig:@"AppConfig"];
         _password = [[AppConfig sharedInstance] getValueForKey:@"ServiceRequestPassword" withConfig:@"AppConfig"];
         _requestMethod = @"POST";
+        _postConditionKeyName = DEFAULT_POST_KEY;
         _requestUrl = [[NSMutableString alloc] initWithString:@""];
         _requestUrlParams = [NSMutableDictionary new];
         _requestUrlKeyNameInConfig = @"";

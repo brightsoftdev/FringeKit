@@ -12,6 +12,7 @@
     NSString *userID;
     NSString *password;
     NSString *requestMethod;
+    NSString *postConditionKeyName;
     NSMutableString *requestUrl;
     NSString *requestUrlKeyNameInConfig;
     NSMutableDictionary *requestUrlParams;
@@ -22,6 +23,7 @@
 @property (nonatomic, copy) NSString *userID;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSString *requestMethod;
+@property (nonatomic, copy) NSString *postConditionKeyName;
 @property (nonatomic, retain) NSMutableString *requestUrl;
 @property (nonatomic, copy) NSString *requestUrlKeyNameInConfig;
 @property (nonatomic, retain) NSMutableDictionary *requestUrlParams;
