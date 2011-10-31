@@ -115,9 +115,11 @@ static ObjectLoader *sharedObjectLoader;
     NSMutableDictionary *jsonObject = [jsonStr JSONValue];// objectFromJSONString];
     NSString * errorDescription = [jsonObject objectForKey:@"errorDescription"];
     
-    if (![errorDescription isNilOrEmpty]) {
-        [_delegate performSelector:@selector(didLoadObjectFailed:) withObject:nil];
-        return;
+    if (errorDescription){
+        if (![errorDescription isNilOrEmpty]) {
+            [_delegate performSelector:@selector(didLoadObjectFailed:) withObject:nil];
+            return;
+        }
     }
 	
     if (jsonObject) {
@@ -148,9 +150,11 @@ static ObjectLoader *sharedObjectLoader;
     NSDictionary *jsonObject = [jsonStr JSONValue ];//objectFromJSONString];
     NSString * errorDescription = [jsonObject objectForKey:@"errorDescription"];
     
-    if (![errorDescription isNilOrEmpty]) {
-        [_delegate performSelector:@selector(didLoadObjectFailed:) withObject:nil];
-        return;
+    if (errorDescription) {
+        if (![errorDescription isNilOrEmpty]) {
+            [_delegate performSelector:@selector(didLoadObjectFailed:) withObject:nil];
+            return;
+        }
     }
 	
     if (jsonObject) {
