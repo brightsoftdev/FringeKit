@@ -66,6 +66,15 @@
     return date;
 }
 
+- (NSString *) paddingLeftToLength: (NSInteger) newLength withString:(NSString *) padString startingAtIndex:(NSUInteger) padIndex{
+    if ([self length] <= newLength) {
+        return [[@"" stringByPaddingToLength:newLength - [self length] withString:padString startingAtIndex:padIndex] stringByAppendingString:self];
+    }
+    else{
+        return self;
+    }
+}
+
 @end
 
 @implementation NSMutableString (iOSAddtions)

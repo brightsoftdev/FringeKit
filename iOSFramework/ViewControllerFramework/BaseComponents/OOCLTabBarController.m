@@ -30,6 +30,11 @@
     
     NSDictionary *tabBarDictionary = [[AppConfig sharedInstance] tabBarConfig];
     NSMutableArray *controllers = [[NSMutableArray alloc] initWithCapacity:[tabBarDictionary count]];
+    if (!_hiddenString) {
+        _hiddenString = @"1";
+        _hiddenString = [_hiddenString paddingLeftToLength:[tabBarDictionary count] withString:@"1" startingAtIndex:0];
+        NSLog(@"hidden String: %@", _hiddenString);
+    }
 
     __block int index = [tabBarDictionary count] - 1;
     [tabBarDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {

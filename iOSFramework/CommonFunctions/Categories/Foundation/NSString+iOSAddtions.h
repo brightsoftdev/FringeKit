@@ -11,20 +11,14 @@
 @interface NSString (iOSAddtions)
 
 - (BOOL) isNilOrEmpty;
-
 - (BOOL) isValidEmailAddress;
-
 - (BOOL) isValidPhoneNumber;
-
 - (NSString *) reverseString;
-
 - (NSString *) trim;
-
 - (NSString *) firstUpcaseString;
-
 - (NSArray *) split: (NSString *) separatedByString;
-
 - (NSDate *) covertToDate;
+- (NSString *) paddingLeftToLength: (NSInteger) newLength withString:(NSString *) padString startingAtIndex:(NSUInteger) padIndex;
 
 @end
 
