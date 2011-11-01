@@ -13,3 +13,9 @@
 - (NSDate *) convertToNSDate ;
 
 @end
+
+@interface NSMutableDictionary (iOSAddtions)
+
+- (NSArray *) sortedKeysArray ;
+
+@end

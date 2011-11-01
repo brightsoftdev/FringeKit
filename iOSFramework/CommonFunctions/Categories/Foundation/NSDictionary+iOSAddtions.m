@@ -50,3 +50,13 @@
 	return result;
 }
 @end
+
+@implementation NSMutableDictionary (iOSAddtions)
+
+- (NSArray *) sortedKeysArray{
+    NSArray *sortedArray = [[NSArray arrayWithArray:[self allKeys]] sortedArrayUsingSelector:@selector(compare:)];
+    return sortedArray;
+
+}
+
+@end

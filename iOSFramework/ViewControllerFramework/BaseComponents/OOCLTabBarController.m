@@ -37,7 +37,8 @@
 - (void) buildUITabBarController{
     
     NSDictionary *tabBarDictionary = [[AppConfig sharedInstance] tabBarConfig];
-    NSMutableArray *controllers = [[NSMutableArray alloc] initWithCapacity:[tabBarDictionary count]];
+    NSMutableDictionary *controllersDic = [[NSMutableDictionary alloc] initWithCapacity:[tabBarDictionary count]];
+    NSMutableArray *controllersArray = [[NSMutableArray alloc] initWithCapacity:[tabBarDictionary count]];
     if (!_disableString) {
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
         [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
@@ -47,11 +48,13 @@
         [numberFormatter release];
     }
 
-    __block int index = [tabBarDictionary count] - 1;
     [tabBarDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        unichar hiddenChar = [_disableString characterAtIndex:index];
         
         NSDictionary *indexDictionary = obj;
+        //the order should be start at 0 in config file
+        int order = [[indexDictionary valueForKey:@"Order"] intValue];
+        unichar hiddenChar = [_disableString characterAtIndex:order];
+        
         NSString *viewControllerClassName = [indexDictionary objectForKey:@"DefaultViewController"];
         Class viewControllerClass = NSClassFromString(viewControllerClassName);
         UIViewController *indexViewController = [[viewControllerClass alloc] initWithNibName:viewControllerClassName bundle:nil];
@@ -62,7 +65,7 @@
         OOCLTabBarItem *indexItem = [[OOCLTabBarItem alloc] init];
         indexItem.title = [indexDictionary objectForKey:@"BarTitle"];
         indexItem.image = indexTabImage;
-        indexItem.tag = index;
+        indexItem.tag = order;
         indexViewController.tabBarItem = indexItem;
         if (hiddenChar == '0') {
             indexItem.enabled = NO;
@@ -70,15 +73,18 @@
         [indexItem release];
         
         OOCLNavigationController *indexNavigationController = [[OOCLNavigationController alloc] initWithRootViewController: indexViewController];
-        [controllers insertObject:indexNavigationController atIndex:0];
+        [controllersDic setValue:indexNavigationController forKey:[NSString stringWithFormat:@"%d", order]];
         [indexViewController release];
         [indexNavigationController release];
-        index-- ;        
     }];
-    
-    //[self setSelectedIndex: [_hiddenString firstIndexForString:@"1"]];
-    [self setViewControllers:controllers];
-    [controllers release];
+
+    for (NSString* key in [controllersDic sortedKeysArray]){
+        [controllersArray addObject:[controllersDic objectForKey:key]];
+    }
+
+    [self setViewControllers:controllersArray];
+    [controllersDic release];
+    [controllersArray release];
 }
 
 - (void) dealloc{
