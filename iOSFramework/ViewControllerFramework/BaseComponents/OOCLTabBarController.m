@@ -28,7 +28,10 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self setSelectedIndex: [_disableString firstIndexForString:@"1"]];
+    if (_disableString) {
+        NSLog(@"disable String: %@", _disableString);
+        [self setSelectedIndex: [_disableString firstIndexForString:@"1"]];
+    }
 }
 
 - (void) buildUITabBarController{
@@ -36,9 +39,12 @@
     NSDictionary *tabBarDictionary = [[AppConfig sharedInstance] tabBarConfig];
     NSMutableArray *controllers = [[NSMutableArray alloc] initWithCapacity:[tabBarDictionary count]];
     if (!_disableString) {
-        _disableString = @"1";
-        _disableString = [_disableString paddingLeftToLength:[tabBarDictionary count] withString:@"1" startingAtIndex:0];
-        NSLog(@"disable String: %@", _disableString);
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+        [numberFormatter setPaddingCharacter:@"1"];
+        [numberFormatter setFormatWidth:[tabBarDictionary count]];
+        _disableString = [[numberFormatter stringFromNumber:[NSNumber numberWithInt:1]] retain];
+        [numberFormatter release];
     }
 
     __block int index = [tabBarDictionary count] - 1;
@@ -76,7 +82,7 @@
 }
 
 - (void) dealloc{
-    [_disableString release];
+    //[_disableString release];
     [super dealloc];
 }
 
