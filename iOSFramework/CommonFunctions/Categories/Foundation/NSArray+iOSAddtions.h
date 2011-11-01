@@ -11,7 +11,7 @@
 @interface NSArray (iOSAddtions)
 
 - (NSArray *) groupArrayByField: (NSString *) groupString;
-
+- (NSDictionary *) groupArrayAsDictionaryByField: (NSString *) groupString;
 - (id)randomObject;
 - (int)randomIndex;
 - (void)shuffle;

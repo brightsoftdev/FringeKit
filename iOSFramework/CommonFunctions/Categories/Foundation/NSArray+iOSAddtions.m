@@ -34,6 +34,26 @@
     return collection;
 }
 
+- (NSDictionary *) groupArrayAsDictionaryByField: (NSString *) groupString{
+    NSMutableArray *tempCollectionArray = [[NSMutableArray alloc] initWithArray:self];
+    NSMutableDictionary *collection = [[NSMutableDictionary alloc] init];
+    [collection removeAllObjects];
+    NSArray *arrIndexes = [NSArray arrayWithArray:
+                           [@"A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"
+                            componentsSeparatedByString:@","]];
+    for (NSString *indexString in arrIndexes) {
+        NSPredicate *groupPredicate = [NSPredicate predicateWithFormat:@"self.%@ BEGINSWITH %@", groupString, indexString];
+        
+        NSArray *group = [tempCollectionArray filteredArrayUsingPredicate: groupPredicate];
+        if ([group count] > 0) {
+            [collection setObject:group forKey:indexString];
+            [tempCollectionArray removeObjectsInArray:group];
+        }
+    }
+    [tempCollectionArray release];
+    return collection;
+}
+
 - (id)randomObject {
 	return [self objectAtIndex:[self randomIndex]];
 }
