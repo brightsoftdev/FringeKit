@@ -47,6 +47,18 @@ static ObjectLoader *sharedObjectLoader;
 
 //load json string as a NSDictionary
 - (void) loadLocalDataAsDictionary:(NSString *) jsonString{
+    
+    if ([_requestParam.requestUrl isNilOrEmpty]) {
+        if (![_requestParam.requestUrlKeyNameInConfig isNilOrEmpty]) {
+            _requestParam.requestUrl = [NSMutableString stringWithString:[[AppConfig sharedInstance] getValueForKey:_requestParam.requestUrlKeyNameInConfig withConfig:@"InterfaceConfig"]];
+        }
+    }
+    
+    if ([_requestParam.requestMethod isEqualToString:@"POST"]) {
+        NSString * postData = [_requestParam.requestUrlParams JSONRepresentation]; 
+        NSLog(@"Post Data: %@", postData);
+    }
+    
     NSDictionary *jsonObject = [jsonString JSONValue];
     if ([_delegate respondsToSelector:@selector(didLoadDictionaryFinished:)]) {
         [_delegate performSelector:@selector(didLoadDictionaryFinished:) withObject:jsonObject];
@@ -68,6 +80,18 @@ static ObjectLoader *sharedObjectLoader;
  
 */
 - (void) loadLocalData:(NSString *) jsonString forKeyPath: (NSString *) keyPath{
+    
+    if ([_requestParam.requestUrl isNilOrEmpty]) {
+        if (![_requestParam.requestUrlKeyNameInConfig isNilOrEmpty]) {
+            _requestParam.requestUrl = [NSMutableString stringWithString:[[AppConfig sharedInstance] getValueForKey:_requestParam.requestUrlKeyNameInConfig withConfig:@"InterfaceConfig"]];
+        }
+    }
+    
+    if ([_requestParam.requestMethod isEqualToString:@"POST"]) {
+        NSString * postData = [_requestParam.requestUrlParams JSONRepresentation]; 
+        NSLog(@"Post Data: %@", postData);
+    }
+    
     NSMutableDictionary *jsonObject = [jsonString JSONValue];
     _relativeKeyPath = keyPath;
     if (jsonObject) {
@@ -175,7 +199,9 @@ static ObjectLoader *sharedObjectLoader;
 
 - (void) requestData: (SEL) requestFinishSelector requestFailedSelector :(SEL) requestFailedSelector withRequestMethod : (NSString *) requestMethod{
     if ([_requestParam.requestUrl isNilOrEmpty]) {
-        _requestParam.requestUrl = [NSMutableString stringWithString:[[AppConfig sharedInstance] getValueForKey:_requestParam.requestUrlKeyNameInConfig withConfig:@"InterfaceConfig"]];
+        if (![_requestParam.requestUrlKeyNameInConfig isNilOrEmpty]) {
+            _requestParam.requestUrl = [NSMutableString stringWithString:[[AppConfig sharedInstance] getValueForKey:_requestParam.requestUrlKeyNameInConfig withConfig:@"InterfaceConfig"]];
+        }
     }
     
     if ([requestMethod isEqualToString:@"POST"]) {
