@@ -82,7 +82,7 @@
         [controllersArray addObject:[controllersDic objectForKey:key]];
     }
 
-    [self setViewControllers:controllersArray];
+    [self setViewControllers:controllersArray animated:YES];
     [controllersDic release];
     [controllersArray release];
 }
