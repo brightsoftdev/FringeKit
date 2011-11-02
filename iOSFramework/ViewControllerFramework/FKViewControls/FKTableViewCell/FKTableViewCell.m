@@ -56,11 +56,20 @@
  you can see it takes a NSDictionary object
  it then will set the label text
  */
--(void)setData:(NSArray *)titleArray setDetail:(NSArray *) detailArray setNote:(NSArray *) noteArray {
+-(void)setDataWithArray:(NSArray *)titleArray setDetailWithArray: (NSArray *) detailArray setNoteWithArray: (NSArray *) noteArray {
+    //get the max length array to calculate the height
     _height = 80;
-	_titleLabel.text = @"asdadadadasd";
-	_detailLabel.text = @"12312321323";
-    _noteLabel.text = @"#$%^#$%$%";
+	_titleLabel.text = [titleArray objectAtIndex:0];
+	_detailLabel.text = [detailArray objectAtIndex:0];
+    _noteLabel.text = [noteArray objectAtIndex:0];
+}
+
+-(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setNoteWithString: (NSString *) noteString {
+    //get the max length string to calculate the height
+    _height = 80;
+	_titleLabel.text = titleString;
+	_detailLabel.text = detailString;
+    _noteLabel.text = noteString;
 }
 
 /*

@@ -18,7 +18,9 @@
 // these are the functions we will create in the .m file
 
 // gets the data from another class
--(void)setData:(NSArray *)titleArray setDetail: (NSArray *) detailArray setNote: (NSArray *) noteArray;
+-(void)setDataWithArray:(NSArray *)titleArray setDetailWithArray: (NSArray *) detailArray setNoteWithArray: (NSArray *) noteArray;
+
+-(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setNoteWithString: (NSString *) noteString;
 
 // internal function to ease setting up label text
 -(UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor fontSize:(CGFloat)fontSize bold:(BOOL)bold;
