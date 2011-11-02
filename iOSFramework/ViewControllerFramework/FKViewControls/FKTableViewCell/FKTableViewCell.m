@@ -11,36 +11,34 @@
 @implementation FKTableViewCell
 
 // we need to synthesize the two labels
-@synthesize titleLabel, urlLabel;
+@synthesize titleLabel=_titleLabel, 
+            detailLabel=_detailLabel, 
+            noteLabel=_noteLabel,
+            height = _height;
 
-- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
-	if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {
-		// Initialization code
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    
+	if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
 		// we need a view to place our labels on.
 		UIView *myContentView = self.contentView;
         
-		/*
-		 init the title label.
-		 set the text alignment to align on the left
-		 add the label to the subview
-		 release the memory
-         */
-		self.titleLabel = [self newLabelWithPrimaryColor:[UIColor blackColor] selectedColor:[UIColor whiteColor] fontSize:14.0 bold:YES];
-		self.titleLabel.textAlignment = UITextAlignmentLeft; // default
-		[myContentView addSubview:self.titleLabel];
-		[self.titleLabel release];
+		_titleLabel = [self newLabelWithPrimaryColor:[UIColor blackColor] selectedColor:[UIColor whiteColor] fontSize:14.0 bold:YES];
+		_titleLabel.textAlignment = UITextAlignmentLeft; // default
+		[myContentView addSubview:_titleLabel];
+		[_titleLabel release];
         
-		/*
-		 init the url label. (you will see a difference in the font color and size here!
-		 set the text alignment to align on the left
-		 add the label to the subview
-		 release the memory
-		 */
-        self.urlLabel = [self newLabelWithPrimaryColor:[UIColor blackColor] selectedColor:[UIColor lightGrayColor] fontSize:10.0 bold:NO];
-		self.urlLabel.textAlignment = UITextAlignmentLeft; // default
-		[myContentView addSubview:self.urlLabel];
-		[self.urlLabel release];
+        _detailLabel = [self newLabelWithPrimaryColor:[UIColor blackColor] selectedColor:[UIColor lightGrayColor] fontSize:10.0 bold:NO];
+		_detailLabel.textAlignment = UITextAlignmentLeft; // default
+		[myContentView addSubview:_detailLabel];
+		[_detailLabel release];
+        
+        _noteLabel = [self newLabelWithPrimaryColor:[UIColor blackColor] selectedColor:[UIColor lightGrayColor] fontSize:10.0 bold:NO];
+		_noteLabel.textAlignment = UITextAlignmentLeft; // default
+		[myContentView addSubview:_noteLabel];
+		[_noteLabel release];
+        
+        //[myContentView bringSubviewToFront:_titleLabel];
 	}
     
 	return self;
@@ -58,9 +56,11 @@
  you can see it takes a NSDictionary object
  it then will set the label text
  */
--(void)setData:(NSDictionary *)dict {
-	self.titleLabel.text = [dict objectForKey:@"title"];
-	self.urlLabel.text = [dict objectForKey:@"img"];
+-(void)setData:(NSArray *)titleArray setDetail:(NSArray *) detailArray setNote:(NSArray *) noteArray {
+    _height = 80;
+	_titleLabel.text = @"asdadadadasd";
+	_detailLabel.text = @"12312321323";
+    _noteLabel.text = @"#$%^#$%$%";
 }
 
 /*
@@ -70,7 +70,6 @@
 - (void)layoutSubviews {
     
     [super layoutSubviews];
-    
 	// getting the cell size
     CGRect contentRect = self.contentView.bounds;
     
@@ -89,11 +88,14 @@
 		 make the label 20 pixels high
          */
 		frame = CGRectMake(boundsX + 10, 4, 200, 20);
-		self.titleLabel.frame = frame;
+		[_titleLabel setFrame:frame];
         
 		// place the url label
 		frame = CGRectMake(boundsX + 10, 28, 200, 14);
-		self.urlLabel.frame = frame;
+		[_detailLabel setFrame:frame];
+        
+        frame = CGRectMake(boundsX + 10, 48, 200, 14);
+		[_noteLabel setFrame:frame];
 	}
 }
 
@@ -131,8 +133,9 @@
 
 - (void)dealloc {
 	// make sure you free the memory
-	[titleLabel dealloc];
-	[urlLabel dealloc];
+//	[_titleLabel release];
+//	[_detailLabel release];
+//  [_noteLabel release];
 	[super dealloc];
 }
 

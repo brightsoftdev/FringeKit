@@ -10,19 +10,23 @@
 
 @interface FKTableViewCell : UITableViewCell{
     UILabel *titleLabel;
-	UILabel *urlLabel;
+	UILabel *detailLabel;
+    UILabel *noteLabel;
+    CGFloat height;
 }
 
 // these are the functions we will create in the .m file
 
 // gets the data from another class
--(void)setData:(NSDictionary *)dict;
+-(void)setData:(NSArray *)titleArray setDetail: (NSArray *) detailArray setNote: (NSArray *) noteArray;
 
 // internal function to ease setting up label text
 -(UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor fontSize:(CGFloat)fontSize bold:(BOOL)bold;
 
 // you should know what this is for by know
 @property (nonatomic, retain) UILabel *titleLabel;
-@property (nonatomic, retain) UILabel *urlLabel;
+@property (nonatomic, retain) UILabel *detailLabel;
+@property (nonatomic, retain) UILabel *noteLabel;
+@property (nonatomic, assign) CGFloat height;
 
 @end
