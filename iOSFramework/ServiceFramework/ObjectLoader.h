@@ -58,4 +58,5 @@
 
 - (id) getMappedObject: (id) object toClass: (Class) className;
 
++ (void) releaseSharedInstance;
 @end

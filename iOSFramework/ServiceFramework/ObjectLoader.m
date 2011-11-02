@@ -342,4 +342,15 @@ static ObjectLoader *sharedObjectLoader;
 	[super dealloc];
 }
 
+- (oneway void)superRelease {
+    [super release];
+}
+
++ (void)releaseSharedInstance {
+    @synchronized(self) {
+        [sharedObjectLoader superRelease];
+        sharedObjectLoader = nil;
+    }
+}
+
 @end
