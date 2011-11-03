@@ -26,7 +26,7 @@
 @property (nonatomic, assign) NSString *postConditionKeyName;
 @property (nonatomic, assign) NSMutableString *requestUrl;
 @property (nonatomic, assign) NSString *requestUrlKeyNameInConfig;
-@property (nonatomic, assign) NSMutableDictionary *requestUrlParams;
+@property (nonatomic, retain) NSMutableDictionary *requestUrlParams;
 @property (nonatomic, assign) NSMutableDictionary *requestHeader;
 @property (nonatomic, assign) int timeOutValue;
 

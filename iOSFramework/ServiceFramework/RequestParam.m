@@ -30,10 +30,17 @@
     if (self) {
         _userID = [[AppConfig sharedInstance] getValueForKey:@"ServiceRequestUserName" withConfig:@"AppConfig"];
         _password = [[AppConfig sharedInstance] getValueForKey:@"ServiceRequestPassword" withConfig:@"AppConfig"];
-        _requestMethod = @"POST";
+        if (!_requestMethod) {
+            _requestMethod = @"POST";
+        }
         _postConditionKeyName = DEFAULT_POST_KEY;
-        _requestUrl = [[NSMutableString alloc] initWithString:@""];
-        _requestUrlParams = [NSMutableDictionary new];
+        if (!_requestUrl) {
+            _requestUrl = [[NSMutableString alloc] initWithString:@""];
+        }
+        if (!_requestUrlParams) {
+            _requestUrlParams = [NSMutableDictionary new];
+        }
+        
         _requestUrlKeyNameInConfig = @"";
         if ([[AppConfig sharedInstance] getValueForKey:@"ServiceTimeOut" withConfig:@"AppConfig"] == nil) {
             _timeOutValue = DefaultTimeOut;
@@ -46,7 +53,7 @@
 }
 
 - (void) dealloc{
-    [_requestUrl release];
+    //[_requestUrl release];
     [_requestUrlParams release];
     [super dealloc];
 }

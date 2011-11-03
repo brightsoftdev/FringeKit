@@ -25,7 +25,6 @@ static ObjectLoader *sharedObjectLoader;
 @synthesize objectRelationship = _objectRelationship;
 @synthesize requestParam = _requestParam;
 @synthesize relativeKeyPath = _relativeKeyPath;
-//@synthesize resultObject = _resultObject;
 
 @synthesize didLoadDictionaryFinishedSelector = _didLoadDictionaryFinishedSelector;
 @synthesize didLoadObjectFinishedSelector = _didLoadObjectFinishedSelector;
@@ -51,7 +50,7 @@ static ObjectLoader *sharedObjectLoader;
 + (ObjectLoader *) sharedObjectLoader{
     @synchronized(self){
         if (sharedObjectLoader == nil)
-			sharedObjectLoader = [[[ObjectLoader alloc] init] autorelease];
+			sharedObjectLoader = [[ObjectLoader alloc] init];
     }
     return sharedObjectLoader;
 }
@@ -141,6 +140,7 @@ static ObjectLoader *sharedObjectLoader;
 - (void) loadRemoteData: (Class) class forKeyPath :(NSString *) keyPath{
     _objectClass = class;
     _relativeKeyPath = keyPath;
+    
     [self requestData:@selector(requestFinished:) requestFailedSelector :@selector(requestFailed:) withRequestMethod:_requestParam.requestMethod];
 }
 
@@ -159,6 +159,7 @@ static ObjectLoader *sharedObjectLoader;
 	
     if (jsonObject) {
         id resultObject = [self performMapping: jsonObject];
+        
         if ([_delegate respondsToSelector:_didLoadObjectFinishedSelector]){
             [_delegate performSelector:_didLoadObjectFinishedSelector withObject:resultObject];
         }
@@ -209,6 +210,7 @@ static ObjectLoader *sharedObjectLoader;
 }
 
 - (void) requestData: (SEL) requestFinishSelector requestFailedSelector :(SEL) requestFailedSelector withRequestMethod : (NSString *) requestMethod{
+    
     if ([_requestParam.requestUrl isNilOrEmpty]) {
         if (![_requestParam.requestUrlKeyNameInConfig isNilOrEmpty]) {
             _requestParam.requestUrl = [NSMutableString stringWithString:[[AppConfig sharedInstance] getValueForKey:_requestParam.requestUrlKeyNameInConfig withConfig:@"InterfaceConfig"]];
@@ -253,6 +255,8 @@ static ObjectLoader *sharedObjectLoader;
         [request setDidFailSelector: requestFailedSelector];
         [request startAsynchronous];
     }
+    
+    [sharedObjectLoader retain];
 }
 
 - (id) performMapping: (NSDictionary *) jsonObject
@@ -270,16 +274,18 @@ static ObjectLoader *sharedObjectLoader;
             id obj = [[_objectClass alloc] init];
             [obj setValuesForKeysWithDictionary:element];
             
-            for (RelationEntity *relationEntity in _objectRelationship.relationshipMappings) {
-                
-                [resultObject addObserver:self forKeyPath:relationEntity.keyPath options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
-                
-                if ([relationEntity.keyPath rangeOfString:@"."].location != NSNotFound) {
-                    id value = [self getMappedObject:[resultObject valueForKeyPath:relationEntity.keyPath] toClass:relationEntity.subClass];
-                    [obj setValue:value forKeyPath:relationEntity.keyPath];
-                }
-                else{
-                    [obj setValue:[self getMappedObject:[element valueForKey:relationEntity.keyPath] toClass:relationEntity.subClass] forKey:relationEntity.keyPath];
+            if (_objectRelationship != nil) {
+                for (RelationEntity *relationEntity in _objectRelationship.relationshipMappings) {
+                    
+                    [resultObject addObserver:self forKeyPath:relationEntity.keyPath options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
+                    
+                    if ([relationEntity.keyPath rangeOfString:@"."].location != NSNotFound) {
+                        id value = [self getMappedObject:[resultObject valueForKeyPath:relationEntity.keyPath] toClass:relationEntity.subClass];
+                        [obj setValue:value forKeyPath:relationEntity.keyPath];
+                    }
+                    else{
+                        [obj setValue:[self getMappedObject:[element valueForKey:relationEntity.keyPath] toClass:relationEntity.subClass] forKey:relationEntity.keyPath];
+                    }
                 }
             }
             
@@ -298,22 +304,25 @@ static ObjectLoader *sharedObjectLoader;
                 [resultObject setValuesForKeysWithDictionary:json];
             }
         }
-        for (RelationEntity *relationEntity in _objectRelationship.relationshipMappings) {
-            
-            [resultObject addObserver:self forKeyPath:relationEntity.keyPath options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
-            
-            if ([relationEntity.keyPath rangeOfString:@"."].location != NSNotFound) {
-                [resultObject setValue:[self getMappedObject:[resultObject valueForKeyPath:relationEntity.keyPath] toClass:relationEntity.subClass] forKeyPath:relationEntity.keyPath];
-            }
-            else{
-                [resultObject setValue:[self getMappedObject:[resultObject valueForKey:relationEntity.keyPath] toClass:relationEntity.subClass] forKey:relationEntity.keyPath];
+        
+        if (_objectRelationship != nil) {
+            for (RelationEntity *relationEntity in _objectRelationship.relationshipMappings) {
+                
+                [resultObject addObserver:self forKeyPath:relationEntity.keyPath options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
+                
+                if ([relationEntity.keyPath rangeOfString:@"."].location != NSNotFound) {
+                    [resultObject setValue:[self getMappedObject:[resultObject valueForKeyPath:relationEntity.keyPath] toClass:relationEntity.subClass] forKeyPath:relationEntity.keyPath];
+                }
+                else{
+                    [resultObject setValue:[self getMappedObject:[resultObject valueForKey:relationEntity.keyPath] toClass:relationEntity.subClass] forKey:relationEntity.keyPath];
+                }
             }
         }
     }
     else{
         resultObject = nil;
         NSLog(@"json object is a nil value...");
-    }   
+    }
     return resultObject;
 }
 
@@ -359,6 +368,7 @@ static ObjectLoader *sharedObjectLoader;
 
 - (void) dealloc
 {
+    //[ObjectLoader releaseSharedInstance];
     [_objectRelationship release];
     [_requestParam release];
     [_relativeKeyPath release];
