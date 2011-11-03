@@ -47,7 +47,7 @@ static ObjectLoader *sharedObjectLoader;
 + (ObjectLoader *) sharedObjectLoader{
     @synchronized(self){
         if (sharedObjectLoader == nil)
-			sharedObjectLoader = [[ObjectLoader alloc] init];
+			sharedObjectLoader = [[[ObjectLoader alloc] init] autorelease];
     }
     return sharedObjectLoader;
 }
