@@ -29,6 +29,6 @@
 
 @property (nonatomic, assign) Class parentClass;
 @property (nonatomic, assign) Class subClass;
-@property (nonatomic, copy) NSString* keyPath;
+@property (nonatomic, assign) NSString* keyPath;
 
 @end

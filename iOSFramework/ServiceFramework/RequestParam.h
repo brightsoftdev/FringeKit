@@ -20,14 +20,14 @@
     int timeOutValue;
 }
 
-@property (nonatomic, copy) NSString *userID;
-@property (nonatomic, copy) NSString *password;
-@property (nonatomic, copy) NSString *requestMethod;
-@property (nonatomic, copy) NSString *postConditionKeyName;
-@property (nonatomic, retain) NSMutableString *requestUrl;
-@property (nonatomic, copy) NSString *requestUrlKeyNameInConfig;
-@property (nonatomic, retain) NSMutableDictionary *requestUrlParams;
-@property (nonatomic, retain) NSMutableDictionary *requestHeader;
+@property (nonatomic, assign) NSString *userID;
+@property (nonatomic, assign) NSString *password;
+@property (nonatomic, assign) NSString *requestMethod;
+@property (nonatomic, assign) NSString *postConditionKeyName;
+@property (nonatomic, assign) NSMutableString *requestUrl;
+@property (nonatomic, assign) NSString *requestUrlKeyNameInConfig;
+@property (nonatomic, assign) NSMutableDictionary *requestUrlParams;
+@property (nonatomic, assign) NSMutableDictionary *requestHeader;
 @property (nonatomic, assign) int timeOutValue;
 
 

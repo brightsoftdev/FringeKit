@@ -28,13 +28,13 @@
     ObjectRelationship *objectRelationship;
     RequestParam *requestParam;
     NSString *relativeKeyPath;
-    id resultObject;
+    //id resultObject;
     SEL didLoadDictionaryFinishedSelector;
     SEL didLoadObjectFinishedSelector;
     SEL didLoadObjectFailedSelector;
 }
 
-@property (nonatomic, retain) id resultObject;
+//@property (nonatomic, retain) id resultObject;
 @property (nonatomic, assign) id<LoadObjectDelegate> delegate;
 @property (nonatomic, assign) Class objectClass;
 @property (nonatomic, retain) ObjectRelationship *objectRelationship;
@@ -59,7 +59,7 @@
 
 - (void) requestData: (SEL) requestFinishSelector requestFailedSelector : (SEL) requestFailedSelector withRequestMethod : (NSString *) requestMethod;
 
-- (void) performMapping: (NSDictionary *) jsonObject;
+- (id) performMapping: (NSDictionary *) jsonObject;
 
 - (BOOL)isNullCollection:(id)object;
 

@@ -25,7 +25,7 @@ static ObjectLoader *sharedObjectLoader;
 @synthesize objectRelationship = _objectRelationship;
 @synthesize requestParam = _requestParam;
 @synthesize relativeKeyPath = _relativeKeyPath;
-@synthesize resultObject = _resultObject;
+//@synthesize resultObject = _resultObject;
 
 @synthesize didLoadDictionaryFinishedSelector = _didLoadDictionaryFinishedSelector;
 @synthesize didLoadObjectFinishedSelector = _didLoadObjectFinishedSelector;
@@ -35,8 +35,12 @@ static ObjectLoader *sharedObjectLoader;
 {
     self = [super init];
     if (self) {
-        _objectRelationship = [ObjectRelationship new];
-        _requestParam = [RequestParam new];
+        if (!_objectRelationship) {
+            _objectRelationship = [ObjectRelationship new];
+        }
+        if (!_requestParam) {
+            _requestParam = [RequestParam new];
+        }
         _didLoadDictionaryFinishedSelector = @selector(didLoadDictionaryFinished:);
         _didLoadObjectFinishedSelector = @selector(didLoadObjectFinished:);
         _didLoadObjectFailedSelector = @selector(didLoadObjectFailed:);
@@ -102,10 +106,10 @@ static ObjectLoader *sharedObjectLoader;
     NSMutableDictionary *jsonObject = [jsonString JSONValue];
     _relativeKeyPath = keyPath;
     if (jsonObject) {
-        [self performMapping: jsonObject];
+        id resultObject = [self performMapping: jsonObject];
         
         if ([_delegate respondsToSelector:_didLoadObjectFinishedSelector]) {
-            [_delegate performSelector:_didLoadObjectFinishedSelector withObject:_resultObject];
+            [_delegate performSelector:_didLoadObjectFinishedSelector withObject:resultObject];
         }
 	} else {
         [_delegate performSelector:_didLoadObjectFailedSelector withObject:nil];
@@ -154,9 +158,9 @@ static ObjectLoader *sharedObjectLoader;
     }
 	
     if (jsonObject) {
-        [self performMapping: jsonObject];
+        id resultObject = [self performMapping: jsonObject];
         if ([_delegate respondsToSelector:_didLoadObjectFinishedSelector]){
-            [_delegate performSelector:_didLoadObjectFinishedSelector withObject:_resultObject];
+            [_delegate performSelector:_didLoadObjectFinishedSelector withObject:resultObject];
         }
 	} else {
         [_delegate performSelector:_didLoadObjectFailedSelector withObject:nil];
@@ -251,14 +255,15 @@ static ObjectLoader *sharedObjectLoader;
     }
 }
 
-- (void) performMapping: (NSDictionary *) jsonObject
+- (id) performMapping: (NSDictionary *) jsonObject
 {
+    id resultObject;
     id json = [jsonObject objectForKey:[_relativeKeyPath isNilOrEmpty]? DEFAULT_RESULT_KEY_NAME: _relativeKeyPath];
     
     //if json is array
     if ([json isKindOfClass:[NSArray class]]) {
-        if (!_resultObject) {
-            _resultObject = [[NSMutableArray alloc] init];
+        if (!resultObject) {
+            resultObject = [[NSMutableArray alloc] init];
         }
         
         for (NSDictionary *element in json) {
@@ -266,8 +271,11 @@ static ObjectLoader *sharedObjectLoader;
             [obj setValuesForKeysWithDictionary:element];
             
             for (RelationEntity *relationEntity in _objectRelationship.relationshipMappings) {
+                
+                [resultObject addObserver:self forKeyPath:relationEntity.keyPath options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
+                
                 if ([relationEntity.keyPath rangeOfString:@"."].location != NSNotFound) {
-                    id value = [self getMappedObject:[_resultObject valueForKeyPath:relationEntity.keyPath] toClass:relationEntity.subClass];
+                    id value = [self getMappedObject:[resultObject valueForKeyPath:relationEntity.keyPath] toClass:relationEntity.subClass];
                     [obj setValue:value forKeyPath:relationEntity.keyPath];
                 }
                 else{
@@ -275,33 +283,42 @@ static ObjectLoader *sharedObjectLoader;
                 }
             }
             
-            [_resultObject addObject:obj];
+            [resultObject addObject:obj];
             [obj release];
         }
     }
     //if json is dictionary
     else if ([json isKindOfClass:[NSDictionary class]]) {
-        if (!_resultObject) {
+        if (!resultObject) {
             if (_objectClass == [NSDictionary class]) {
-                _resultObject = [[NSMutableDictionary alloc] initWithDictionary:json];
+                resultObject = [[NSMutableDictionary alloc] initWithDictionary:json];
             }
             else{
-                _resultObject = [[_objectClass alloc] init];
-                [_resultObject setValuesForKeysWithDictionary:json];
+                resultObject = [[_objectClass alloc] init];
+                [resultObject setValuesForKeysWithDictionary:json];
             }
         }
         for (RelationEntity *relationEntity in _objectRelationship.relationshipMappings) {
+            
+            [resultObject addObserver:self forKeyPath:relationEntity.keyPath options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
+            
             if ([relationEntity.keyPath rangeOfString:@"."].location != NSNotFound) {
-                [_resultObject setValue:[self getMappedObject:[_resultObject valueForKeyPath:relationEntity.keyPath] toClass:relationEntity.subClass] forKeyPath:relationEntity.keyPath];
+                [resultObject setValue:[self getMappedObject:[resultObject valueForKeyPath:relationEntity.keyPath] toClass:relationEntity.subClass] forKeyPath:relationEntity.keyPath];
             }
             else{
-                [_resultObject setValue:[self getMappedObject:[_resultObject valueForKey:relationEntity.keyPath] toClass:relationEntity.subClass] forKey:relationEntity.keyPath];
+                [resultObject setValue:[self getMappedObject:[resultObject valueForKey:relationEntity.keyPath] toClass:relationEntity.subClass] forKey:relationEntity.keyPath];
             }
         }
     }
     else{
+        resultObject = nil;
         NSLog(@"json object is a nil value...");
-    }
+    }   
+    return resultObject;
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    NSLog(@"keyPath: %@ \n change:%@", keyPath, change);
 }
 
 //handle leaf type 
@@ -342,7 +359,6 @@ static ObjectLoader *sharedObjectLoader;
 
 - (void) dealloc
 {
-    [_resultObject release];
     [_objectRelationship release];
     [_requestParam release];
     [_relativeKeyPath release];
