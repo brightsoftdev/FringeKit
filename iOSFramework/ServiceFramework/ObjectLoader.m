@@ -38,7 +38,7 @@ static ObjectLoader *sharedObjectLoader;
         _objectRelationship = [ObjectRelationship new];
         _requestParam = [RequestParam new];
         _didLoadDictionaryFinishedSelector = @selector(didLoadDictionaryFinished:);
-        _didLoadObjectFinishedSelector = @selector(didLoadObjectFinished);
+        _didLoadObjectFinishedSelector = @selector(didLoadObjectFinished:);
         _didLoadObjectFailedSelector = @selector(didLoadObjectFailed:);
     }
     return self;
