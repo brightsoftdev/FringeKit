@@ -257,7 +257,7 @@ static ObjectLoader *sharedObjectLoader;
 
 - (id) performMapping: (NSDictionary *) jsonObject
 {
-    id resultObject;
+    id resultObject = nil;
     id json = [jsonObject objectForKey:[_relativeKeyPath isNilOrEmpty]? DEFAULT_RESULT_KEY_NAME: _relativeKeyPath];
     
     //if json is array

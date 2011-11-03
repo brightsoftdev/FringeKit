@@ -44,6 +44,7 @@
 }
 
 - (void) dealloc{
+    //[_relationshipMappings release];
     [super dealloc];
 }
 
