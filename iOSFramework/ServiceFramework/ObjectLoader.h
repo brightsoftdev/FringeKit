@@ -29,6 +29,9 @@
     RequestParam *requestParam;
     NSString *relativeKeyPath;
     id resultObject;
+    SEL didLoadDictionaryFinishedSelector;
+    SEL didLoadObjectFinishedSelector;
+    SEL didLoadObjectFailedSelector;
 }
 
 @property (nonatomic, retain) id resultObject;
@@ -37,6 +40,10 @@
 @property (nonatomic, retain) ObjectRelationship *objectRelationship;
 @property (nonatomic, retain) RequestParam *requestParam;
 @property (nonatomic, copy) NSString *relativeKeyPath;
+
+@property (nonatomic, assign) SEL didLoadDictionaryFinishedSelector;
+@property (nonatomic, assign) SEL didLoadObjectFinishedSelector;
+@property (nonatomic, assign) SEL didLoadObjectFailedSelector;
 
 + (ObjectLoader *) sharedObjectLoader;
 
