@@ -14,15 +14,16 @@
 #import "FKTableViewCell.h"
 
 @implementation FKTableViewCell
-@synthesize titleLabelSize = _titleLabelSize, detailLabelSize = _detailLabelSize, noteLabelSize = _noteLabelSize;
-@synthesize width;
 
-
-// we need to synthesize the two labels
+@synthesize titleLabelSize = _titleLabelSize, 
+            detailLabelSize = _detailLabelSize, 
+            noteLabelSize = _noteLabelSize;
 @synthesize titleLabel=_titleLabel, 
-detailLabel=_detailLabel, 
-noteLabel=_noteLabel,
-height = _height;
+            detailLabel=_detailLabel, 
+            noteLabel=_noteLabel,
+            height = _height;
+
+@synthesize width;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
@@ -31,9 +32,6 @@ height = _height;
 		// we need a view to place our labels on.
 		UIView *myContentView = self.contentView;
         [myContentView setBackgroundColor:[UIColor clearColor]];
-        
-        
-        
         
         _titleLabel.font = [UIFont systemFontOfSize:DEFAULT_TITLE_FONT];
         _detailLabel.font = [UIFont systemFontOfSize:DEFAULT_DETAIL_FONT];
@@ -59,8 +57,6 @@ height = _height;
         [_noteLabel setNumberOfLines:0];
         [_noteLabel setBackgroundColor:[UIColor clearColor]];
 		[_noteLabel release];
-        
-        //[myContentView bringSubviewToFront:_titleLabel];
 	}
     
 	return self;
@@ -88,13 +84,12 @@ height = _height;
 
 -(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setNoteWithString: (NSString *) noteString setCellWidth: (CGFloat)cellWidth{
     //get the max length string to calculate the height
-    //    _height = 80;
     width = cellWidth;
     
 	_titleLabel.text = titleString;
 	_detailLabel.text = detailString;
     _noteLabel.text = noteString;
-    //    UIFont *font = [noteString getFileSystemRep]
+    
     if (width == DEFAULT_CELL_WIDTH) {
         _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
         _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
@@ -182,25 +177,8 @@ height = _height;
 	}
 }
 
-/*
- this function was taken from an XML example
- provided by Apple
- 
- I can take no credit in this
- */
 - (UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor font:(UIFont *)font bold:(BOOL)bold
 {
-	/*
-	 Create and configure a label.
-	 */
-    
-    //    UIFont *font;
-    //    if (bold) {
-    //        font = [UIFont boldSystemFontOfSize:fontSize];
-    //    } else {
-    //        font = [UIFont systemFontOfSize:fontSize];
-    //    }
-    
     /*
 	 Views are drawn most efficiently when they are opaque and do not have a clear background, so set these defaults.  To show selection properly, however, the views need to be transparent (so that the selection color shows through).  This is handled in setSelected:animated:.
 	 */
@@ -216,9 +194,9 @@ height = _height;
 
 - (void)dealloc {
 	// make sure you free the memory
-	[_titleLabel release];
-	[_detailLabel release];
-    [_noteLabel release];
+	//[_titleLabel release];
+	//[_detailLabel release];
+    //[_noteLabel release];
 	[super dealloc];
 }
 
