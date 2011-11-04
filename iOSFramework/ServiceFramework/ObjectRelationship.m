@@ -16,9 +16,6 @@
 {
     self = [super init];
     if (self) {
-        if (!_relationshipMappings) {
-            _relationshipMappings = [NSMutableArray new];
-        }
     }
     return self;
 }
@@ -28,6 +25,10 @@
     relationEntity.parentClass = parentClass;
     relationEntity.subClass = subClass;
     relationEntity.keyPath = mappingKeyPath;
+    
+    if (!_relationshipMappings) {
+        _relationshipMappings = [NSMutableArray new];
+    }
     
     [_relationshipMappings addObject:relationEntity];
     [relationEntity release];
@@ -39,6 +40,9 @@
     relationEntity.subClass = subClass;
     relationEntity.keyPath = mappingKey;
     
+    if (!_relationshipMappings) {
+        _relationshipMappings = [NSMutableArray new];
+    }
     [_relationshipMappings addObject:relationEntity];
     [relationEntity release];
 }

@@ -35,10 +35,10 @@ static ObjectLoader *sharedObjectLoader;
     self = [super init];
     if (self) {
         if (!_objectRelationship) {
-            _objectRelationship = [ObjectRelationship new];
+            //_objectRelationship = [ObjectRelationship new];
         }
         if (!_requestParam) {
-            _requestParam = [RequestParam new];
+            //_requestParam = [RequestParam new];
         }
         _didLoadDictionaryFinishedSelector = @selector(didLoadDictionaryFinished:);
         _didLoadObjectFinishedSelector = @selector(didLoadObjectFinished:);
