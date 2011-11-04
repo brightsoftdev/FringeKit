@@ -62,6 +62,10 @@
 		46A6132F144B1F59001021CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A6132A144B1F59001021CB /* UIKit.framework */; };
 		46AD983714641A9400B7E233 /* FKAutoHeightCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 46AD983514641A9400B7E233 /* FKAutoHeightCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46AD983814641A9400B7E233 /* FKAutoHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD983614641A9400B7E233 /* FKAutoHeightCell.m */; };
+		46AD988714643DB400B7E233 /* MapAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 46AD988514643DB400B7E233 /* MapAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46AD988814643DB400B7E233 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD988614643DB400B7E233 /* MapAnnotation.m */; };
+		46AD988A14643DFF00B7E233 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46AD988914643DFF00B7E233 /* CoreLocation.framework */; };
+		46AD988C14643E1500B7E233 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46AD988B14643E1500B7E233 /* MapKit.framework */; };
 		46B51A4114518B4700F2DE98 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B51A2714518B4700F2DE98 /* JSON.h */; };
 		46B51A4214518B4700F2DE98 /* NSObject+SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B51A2814518B4700F2DE98 /* NSObject+SBJson.h */; };
 		46B51A4314518B4700F2DE98 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B51A2914518B4700F2DE98 /* NSObject+SBJson.m */; };
@@ -192,6 +196,10 @@
 		46A6132A144B1F59001021CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46AD983514641A9400B7E233 /* FKAutoHeightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAutoHeightCell.h; sourceTree = "<group>"; };
 		46AD983614641A9400B7E233 /* FKAutoHeightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAutoHeightCell.m; sourceTree = "<group>"; };
+		46AD988514643DB400B7E233 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		46AD988614643DB400B7E233 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
+		46AD988914643DFF00B7E233 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		46AD988B14643E1500B7E233 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		46B51A2714518B4700F2DE98 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		46B51A2814518B4700F2DE98 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		46B51A2914518B4700F2DE98 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
@@ -273,6 +281,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46AD988C14643E1500B7E233 /* MapKit.framework in Frameworks */,
+				46AD988A14643DFF00B7E233 /* CoreLocation.framework in Frameworks */,
 				46B51A721451949800F2DE98 /* libsqlite3.dylib in Frameworks */,
 				464521C814505D5100C86F2E /* libz.1.2.5.dylib in Frameworks */,
 				46A6132B144B1F59001021CB /* CFNetwork.framework in Frameworks */,
@@ -390,6 +400,15 @@
 			path = FKAutoHeightCell;
 			sourceTree = "<group>";
 		};
+		46AD988314643D9300B7E233 /* MapKitHelper */ = {
+			isa = PBXGroup;
+			children = (
+				46AD988514643DB400B7E233 /* MapAnnotation.h */,
+				46AD988614643DB400B7E233 /* MapAnnotation.m */,
+			);
+			path = MapKitHelper;
+			sourceTree = "<group>";
+		};
 		46B51A2614518B4700F2DE98 /* JsonFramework */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +478,8 @@
 			children = (
 				46B51A711451949800F2DE98 /* libsqlite3.dylib */,
 				464521C714505D5100C86F2E /* libz.1.2.5.dylib */,
+				46AD988B14643E1500B7E233 /* MapKit.framework */,
+				46AD988914643DFF00B7E233 /* CoreLocation.framework */,
 				46A61326144B1F59001021CB /* CFNetwork.framework */,
 				46A61327144B1F59001021CB /* MessageUI.framework */,
 				46A61328144B1F59001021CB /* MobileCoreServices.framework */,
@@ -583,6 +604,7 @@
 		46E2E7051449389800EC0AC0 /* UtilityFramework */ = {
 			isa = PBXGroup;
 			children = (
+				46AD988314643D9300B7E233 /* MapKitHelper */,
 				46E2E7081449389800EC0AC0 /* EmailUtils.h */,
 				46E2E7091449389800EC0AC0 /* EmailUtils.m */,
 				46E2E70A1449389800EC0AC0 /* NetworkUtils.h */,
@@ -677,6 +699,7 @@
 				46895DAD145ED4300076F17E /* FKTableViewCell.h in Headers */,
 				46895DB1145ED4BD0076F17E /* FKTableView.h in Headers */,
 				46AD983714641A9400B7E233 /* FKAutoHeightCell.h in Headers */,
+				46AD988714643DB400B7E233 /* MapAnnotation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,6 +808,7 @@
 				46895DAE145ED4300076F17E /* FKTableViewCell.m in Sources */,
 				46895DB2145ED4BD0076F17E /* FKTableView.m in Sources */,
 				46AD983814641A9400B7E233 /* FKAutoHeightCell.m in Sources */,
+				46AD988814643DB400B7E233 /* MapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
