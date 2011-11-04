@@ -60,6 +60,8 @@
 		46A6132D144B1F59001021CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A61328144B1F59001021CB /* MobileCoreServices.framework */; };
 		46A6132E144B1F59001021CB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A61329144B1F59001021CB /* SystemConfiguration.framework */; };
 		46A6132F144B1F59001021CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A6132A144B1F59001021CB /* UIKit.framework */; };
+		46AD983714641A9400B7E233 /* FKAutoHeightCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 46AD983514641A9400B7E233 /* FKAutoHeightCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46AD983814641A9400B7E233 /* FKAutoHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD983614641A9400B7E233 /* FKAutoHeightCell.m */; };
 		46B51A4114518B4700F2DE98 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B51A2714518B4700F2DE98 /* JSON.h */; };
 		46B51A4214518B4700F2DE98 /* NSObject+SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B51A2814518B4700F2DE98 /* NSObject+SBJson.h */; };
 		46B51A4314518B4700F2DE98 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B51A2914518B4700F2DE98 /* NSObject+SBJson.m */; };
@@ -188,6 +190,8 @@
 		46A61328144B1F59001021CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		46A61329144B1F59001021CB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		46A6132A144B1F59001021CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		46AD983514641A9400B7E233 /* FKAutoHeightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAutoHeightCell.h; sourceTree = "<group>"; };
+		46AD983614641A9400B7E233 /* FKAutoHeightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAutoHeightCell.m; sourceTree = "<group>"; };
 		46B51A2714518B4700F2DE98 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		46B51A2814518B4700F2DE98 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		46B51A2914518B4700F2DE98 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 		46895DA8145ED33A0076F17E /* FKTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				46AD983314641A6300B7E233 /* FKAutoHeightCell */,
 				46895DAB145ED4300076F17E /* FKTableViewCell.h */,
 				46895DAC145ED4300076F17E /* FKTableViewCell.m */,
 			);
@@ -374,6 +379,15 @@
 				46A61323144B1E7F001021CB /* OOCLNavigationController.m */,
 			);
 			path = BaseComponents;
+			sourceTree = "<group>";
+		};
+		46AD983314641A6300B7E233 /* FKAutoHeightCell */ = {
+			isa = PBXGroup;
+			children = (
+				46AD983514641A9400B7E233 /* FKAutoHeightCell.h */,
+				46AD983614641A9400B7E233 /* FKAutoHeightCell.m */,
+			);
+			path = FKAutoHeightCell;
 			sourceTree = "<group>";
 		};
 		46B51A2614518B4700F2DE98 /* JsonFramework */ = {
@@ -662,6 +676,7 @@
 				469FEE5B1453DA2B00B0AFAE /* DFObject.h in Headers */,
 				46895DAD145ED4300076F17E /* FKTableViewCell.h in Headers */,
 				46895DB1145ED4BD0076F17E /* FKTableView.h in Headers */,
+				46AD983714641A9400B7E233 /* FKAutoHeightCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,6 +784,7 @@
 				469FEE5C1453DA2B00B0AFAE /* DFObject.m in Sources */,
 				46895DAE145ED4300076F17E /* FKTableViewCell.m in Sources */,
 				46895DB2145ED4BD0076F17E /* FKTableView.m in Sources */,
+				46AD983814641A9400B7E233 /* FKAutoHeightCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

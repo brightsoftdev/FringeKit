@@ -10,5 +10,5 @@
 #import "OOCLTabBarController.h"
 #import "OOCLNavigationController.h"
 #import "FKTableView.h"
-#import "FKTableViewCell.h"
+#import "FKAutoHeightCell.h"
 #import "MBProgressHUD.h"
