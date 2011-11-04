@@ -12,12 +12,15 @@
 @interface OOCLTabBarController : UITabBarController{
     //disable string sample: @"1101"
     NSString *disableString;
+    NSString *configKeyName;
 }
 
 @property (nonatomic, assign) NSString *disableString;
+@property (nonatomic, assign) NSString *configKeyName;
 
 - (void) buildUITabBarController;
 
+- (id) initWithConfig: (NSString *) cfgKeyName;
 //-(void)activateController:(int)index;
 //-(void)activateTabItem:(int)index;
 

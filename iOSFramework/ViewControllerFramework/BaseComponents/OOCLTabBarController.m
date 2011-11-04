@@ -15,12 +15,24 @@
 @implementation OOCLTabBarController
 
 @synthesize disableString = _disableString;
+@synthesize configKeyName = _configKeyName;;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         // Initialization code here.
+    }
+    
+    return self;
+}
+
+- (id)initWithConfig: (NSString *) cfgKeyName
+{
+    self = [super init];
+    if (self) {
+        // Initialization code here.
+        _configKeyName = cfgKeyName;
     }
     
     return self;
@@ -36,7 +48,14 @@
 
 - (void) buildUITabBarController{
     
-    NSDictionary *tabBarDictionary = [[AppConfig sharedInstance] tabBarConfig];
+    NSDictionary *tabBarDictionary = nil;
+    if (_configKeyName) {
+        tabBarDictionary = [[AppConfig sharedInstance] getObjectForKey:_configKeyName];
+    }
+    else{
+        tabBarDictionary = [[AppConfig sharedInstance] tabBarConfig];
+    }
+    //NSDictionary *tabBarDictionary = [[AppConfig sharedInstance] tabBarConfig];
     NSMutableDictionary *controllersDic = [[NSMutableDictionary alloc] initWithCapacity:[tabBarDictionary count]];
     NSMutableArray *controllersArray = [[NSMutableArray alloc] initWithCapacity:[tabBarDictionary count]];
     if (!_disableString) {
@@ -89,6 +108,7 @@
 
 - (void) dealloc{
     //[_disableString release];
+    [_configKeyName release];
     [super dealloc];
 }
 

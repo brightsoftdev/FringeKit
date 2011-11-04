@@ -26,4 +26,6 @@
 
 - (NSString *) getValueForKey: (NSString *) keyString withConfig: (NSString *) configName;
 
+- (id) getObjectForKey: (NSString *) keyString;
+
 @end

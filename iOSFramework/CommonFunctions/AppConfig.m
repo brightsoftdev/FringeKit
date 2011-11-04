@@ -39,6 +39,10 @@ static AppConfig *sharedInstance;
 	return self;
 }
 
+- (id) getObjectForKey: (NSString *) keyString{
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:keyString];
+}
+
 - (NSString *) getValueForKey: (NSString *) keyString withConfig: (NSString *) configName{
     if ([configName isEqualToString:@"AppConfig"]) {
         return [_applicationConfig objectForKey:keyString];
