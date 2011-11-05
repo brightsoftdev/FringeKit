@@ -20,7 +20,8 @@
         coordinate = temp_coordinate;  
     }    
     return self;
-}  
+}
+
 - (void) dealloc{
     [_title release];
     [_subtitle release];
