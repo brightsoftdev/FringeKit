@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460FB31614657C4E003254C6 /* FKViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 460FB31414657C4E003254C6 /* FKViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		460FB31714657C4E003254C6 /* FKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460FB31514657C4E003254C6 /* FKViewController.m */; };
 		464521C814505D5100C86F2E /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 464521C714505D5100C86F2E /* libz.1.2.5.dylib */; };
 		464521DA14505FA300C86F2E /* ObjectRelationship.h in Headers */ = {isa = PBXBuildFile; fileRef = 464521D814505FA300C86F2E /* ObjectRelationship.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		464521DB14505FA300C86F2E /* ObjectRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 464521D914505FA300C86F2E /* ObjectRelationship.m */; };
@@ -140,6 +142,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		460FB31414657C4E003254C6 /* FKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKViewController.h; sourceTree = "<group>"; };
+		460FB31514657C4E003254C6 /* FKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKViewController.m; sourceTree = "<group>"; };
 		464521C714505D5100C86F2E /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		464521D814505FA300C86F2E /* ObjectRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectRelationship.h; sourceTree = "<group>"; };
 		464521D914505FA300C86F2E /* ObjectRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectRelationship.m; sourceTree = "<group>"; };
@@ -297,9 +301,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		460FB31214657C1E003254C6 /* FKView */ = {
+			isa = PBXGroup;
+			children = (
+				460FB31414657C4E003254C6 /* FKViewController.h */,
+				460FB31514657C4E003254C6 /* FKViewController.m */,
+			);
+			path = FKView;
+			sourceTree = "<group>";
+		};
 		46895DA6145ED33A0076F17E /* FKViewControls */ = {
 			isa = PBXGroup;
 			children = (
+				460FB31214657C1E003254C6 /* FKView */,
 				46895DA7145ED33A0076F17E /* FKTableView */,
 				46895DA8145ED33A0076F17E /* FKTableViewCell */,
 			);
@@ -700,6 +714,7 @@
 				46895DB1145ED4BD0076F17E /* FKTableView.h in Headers */,
 				46AD983714641A9400B7E233 /* FKAutoHeightCell.h in Headers */,
 				46AD988714643DB400B7E233 /* MapAnnotation.h in Headers */,
+				460FB31614657C4E003254C6 /* FKViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,6 +824,7 @@
 				46895DB2145ED4BD0076F17E /* FKTableView.m in Sources */,
 				46AD983814641A9400B7E233 /* FKAutoHeightCell.m in Sources */,
 				46AD988814643DB400B7E233 /* MapAnnotation.m in Sources */,
+				460FB31714657C4E003254C6 /* FKViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
