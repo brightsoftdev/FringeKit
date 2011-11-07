@@ -37,21 +37,19 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper-alt.png"]]];
 }
-*/
+
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wallpage-alt.png"]];
-    
-    [self.view addSubview:backgroundImage];
-    [self.view sendSubviewToBack:backgroundImage];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
