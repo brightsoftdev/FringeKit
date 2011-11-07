@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		18EF2B26146780FB00CA8C68 /* FKAutoHeightImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 18EF2B24146780FB00CA8C68 /* FKAutoHeightImageCell.h */; };
 		18EF2B27146780FB00CA8C68 /* FKAutoHeightImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF2B25146780FB00CA8C68 /* FKAutoHeightImageCell.m */; };
+		18EF2B561467D1CF00CA8C68 /* FKRefreshTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18EF2B541467D1CF00CA8C68 /* FKRefreshTableView.h */; };
+		18EF2B571467D1CF00CA8C68 /* FKRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF2B551467D1CF00CA8C68 /* FKRefreshTableView.m */; };
 		460FB31614657C4E003254C6 /* FKViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 460FB31414657C4E003254C6 /* FKViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		460FB31714657C4E003254C6 /* FKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460FB31514657C4E003254C6 /* FKViewController.m */; };
 		464521C814505D5100C86F2E /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 464521C714505D5100C86F2E /* libz.1.2.5.dylib */; };
@@ -309,6 +311,8 @@
 /* Begin PBXFileReference section */
 		18EF2B24146780FB00CA8C68 /* FKAutoHeightImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAutoHeightImageCell.h; sourceTree = "<group>"; };
 		18EF2B25146780FB00CA8C68 /* FKAutoHeightImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAutoHeightImageCell.m; sourceTree = "<group>"; };
+		18EF2B541467D1CF00CA8C68 /* FKRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKRefreshTableView.h; sourceTree = "<group>"; };
+		18EF2B551467D1CF00CA8C68 /* FKRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKRefreshTableView.m; sourceTree = "<group>"; };
 		460FB31414657C4E003254C6 /* FKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKViewController.h; sourceTree = "<group>"; };
 		460FB31514657C4E003254C6 /* FKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKViewController.m; sourceTree = "<group>"; };
 		464521C714505D5100C86F2E /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
@@ -643,6 +647,15 @@
 			path = FKAutoHeightImageCell;
 			sourceTree = "<group>";
 		};
+		18EF2B521467D19300CA8C68 /* FKRefreshTableView */ = {
+			isa = PBXGroup;
+			children = (
+				18EF2B541467D1CF00CA8C68 /* FKRefreshTableView.h */,
+				18EF2B551467D1CF00CA8C68 /* FKRefreshTableView.m */,
+			);
+			path = FKRefreshTableView;
+			sourceTree = "<group>";
+		};
 		460FB31214657C1E003254C6 /* FKView */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,6 +678,7 @@
 		46895DA7145ED33A0076F17E /* FKTableView */ = {
 			isa = PBXGroup;
 			children = (
+				18EF2B521467D19300CA8C68 /* FKRefreshTableView */,
 				46895DAF145ED4BD0076F17E /* FKTableView.h */,
 				46895DB0145ED4BD0076F17E /* FKTableView.m */,
 			);
@@ -1328,6 +1342,7 @@
 				4689EF491466B54F00318682 /* CPTTextStylePlatformSpecific.h in Headers */,
 				4689EF781466BD2C00318682 /* CorePlot-CocoaTouch.h in Headers */,
 				18EF2B26146780FB00CA8C68 /* FKAutoHeightImageCell.h in Headers */,
+				18EF2B561467D1CF00CA8C68 /* FKRefreshTableView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,6 +1534,7 @@
 				4689EF4A1466B54F00318682 /* CPTTextStylePlatformSpecific.m in Sources */,
 				4689EF501466B88100318682 /* CorePlotProbes.d in Sources */,
 				18EF2B27146780FB00CA8C68 /* FKAutoHeightImageCell.m in Sources */,
+				18EF2B571467D1CF00CA8C68 /* FKRefreshTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
