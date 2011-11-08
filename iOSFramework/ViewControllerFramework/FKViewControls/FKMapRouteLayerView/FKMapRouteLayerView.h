@@ -9,17 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface FKMapRouteLayerView : UIView <MKMapViewDelegate>
-{
-	MKMapView* _mapView;
-	NSArray* _points;
-	UIColor* _lineColor;
+@interface FKMapRouteLayerView : UIView{
+	MKMapView *inMapView;
+	NSArray *routes;
+	UIColor *lineColor;
 }
 
--(id) initWithRoute:(NSArray*)routePoints mapView:(MKMapView*)mapView;
+- (id)initWithMapView:(MKMapView *)mapView;
 
-@property (nonatomic, retain) NSArray* points;
-@property (nonatomic, retain) MKMapView* mapView;
-@property (nonatomic, retain) UIColor* lineColor; 
+@property (nonatomic, retain) MKMapView *inMapView;
+@property (nonatomic, retain) NSArray *routes;
+@property (nonatomic, retain) UIColor *lineColor;
 
 @end
+

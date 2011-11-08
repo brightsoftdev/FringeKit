@@ -13,7 +13,8 @@
 @synthesize coordinate = _coordinate; 
 @synthesize tag = _tag;  
 @synthesize title = _title;  
-@synthesize subtitle = _subtitle;  
+@synthesize subtitle = _subtitle;
+@synthesize annotationType = _annotationType;
 
 - (id) initWithCoordinate:(CLLocationCoordinate2D) temp_coordinate  
 {  
@@ -25,15 +26,24 @@
 
 -(id)initWithCoordinate:(CLLocationCoordinate2D)c withTag:(NSUInteger)t withTitle:(NSString *)tl withSubtitle:	(NSString *)s	
 {
-	if(self = [super init])
-	{
+	if(self = [super init]){
 		_coordinate = c;
 		_tag = t;
 		_title = tl;
 		_subtitle = s;
 	}
 	return self;
-    
+}
+
+- (id) initWithCoordinateAndType:(CLLocationCoordinate2D)c withTag:(NSUInteger)t withTitle:(NSString *)tl withSubtitle:	(NSString *)s annotationType:(UICRouteAnnotationType)type{
+    if(self = [super init]){
+		_coordinate = c;
+		_tag = t;
+		_title = tl;
+		_subtitle = s;
+        _annotationType = type;
+	}
+	return self;
 }
 
 - (void) dealloc{
