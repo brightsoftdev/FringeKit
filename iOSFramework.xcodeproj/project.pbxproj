@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18682F2C14691C620046702A /* UserDefaultHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 18682F2A14691C620046702A /* UserDefaultHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18682F2D14691C620046702A /* UserDefaultHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18682F2B14691C620046702A /* UserDefaultHelper.m */; };
 		18EF2B26146780FB00CA8C68 /* FKAutoHeightImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 18EF2B24146780FB00CA8C68 /* FKAutoHeightImageCell.h */; };
 		18EF2B27146780FB00CA8C68 /* FKAutoHeightImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF2B25146780FB00CA8C68 /* FKAutoHeightImageCell.m */; };
 		18EF2B561467D1CF00CA8C68 /* FKRefreshTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18EF2B541467D1CF00CA8C68 /* FKRefreshTableView.h */; };
@@ -309,6 +311,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18682F2A14691C620046702A /* UserDefaultHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultHelper.h; sourceTree = "<group>"; };
+		18682F2B14691C620046702A /* UserDefaultHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultHelper.m; sourceTree = "<group>"; };
 		18EF2B24146780FB00CA8C68 /* FKAutoHeightImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAutoHeightImageCell.h; sourceTree = "<group>"; };
 		18EF2B25146780FB00CA8C68 /* FKAutoHeightImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAutoHeightImageCell.m; sourceTree = "<group>"; };
 		18EF2B541467D1CF00CA8C68 /* FKRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKRefreshTableView.h; sourceTree = "<group>"; };
@@ -1174,6 +1178,8 @@
 				46921D8D1452808900FA108E /* KeyChainUtils.m */,
 				469FEE551453CFCD00B0AFAE /* MsgAlertHelper.h */,
 				469FEE561453CFCD00B0AFAE /* MsgAlertHelper.m */,
+				18682F2A14691C620046702A /* UserDefaultHelper.h */,
+				18682F2B14691C620046702A /* UserDefaultHelper.m */,
 			);
 			path = UtilityFramework;
 			sourceTree = "<group>";
@@ -1343,6 +1349,7 @@
 				4689EF781466BD2C00318682 /* CorePlot-CocoaTouch.h in Headers */,
 				18EF2B26146780FB00CA8C68 /* FKAutoHeightImageCell.h in Headers */,
 				18EF2B561467D1CF00CA8C68 /* FKRefreshTableView.h in Headers */,
+				18682F2C14691C620046702A /* UserDefaultHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1535,6 +1542,7 @@
 				4689EF501466B88100318682 /* CorePlotProbes.d in Sources */,
 				18EF2B27146780FB00CA8C68 /* FKAutoHeightImageCell.m in Sources */,
 				18EF2B571467D1CF00CA8C68 /* FKRefreshTableView.m in Sources */,
+				18682F2D14691C620046702A /* UserDefaultHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
