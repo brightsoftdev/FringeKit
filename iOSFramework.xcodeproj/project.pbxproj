@@ -214,7 +214,7 @@
 		46921D7614525D0D00FA108E /* UIApplication+iOSAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 46921D7414525D0C00FA108E /* UIApplication+iOSAddtions.m */; };
 		46921D8E1452808900FA108E /* KeyChainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 46921D8C1452808800FA108E /* KeyChainUtils.h */; };
 		46921D8F1452808900FA108E /* KeyChainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 46921D8D1452808900FA108E /* KeyChainUtils.m */; };
-		4697330A146962270074EAF3 /* FKMapRouteLayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 46973308146962270074EAF3 /* FKMapRouteLayerView.h */; };
+		4697330A146962270074EAF3 /* FKMapRouteLayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 46973308146962270074EAF3 /* FKMapRouteLayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4697330B146962270074EAF3 /* FKMapRouteLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46973309146962270074EAF3 /* FKMapRouteLayerView.m */; };
 		469FEE571453CFCD00B0AFAE /* MsgAlertHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 469FEE551453CFCD00B0AFAE /* MsgAlertHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		469FEE581453CFCD00B0AFAE /* MsgAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 469FEE561453CFCD00B0AFAE /* MsgAlertHelper.m */; };
