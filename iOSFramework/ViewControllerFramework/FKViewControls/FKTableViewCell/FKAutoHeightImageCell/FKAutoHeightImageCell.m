@@ -119,9 +119,9 @@ imageViewPosition = _imageViewPosition;
     }
     
     if (_imageViewPosition == UIImageViewPositionLeft || _imageViewPosition == UIImageViewPositionRight) {
-        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
-        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
-        _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
+        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
         
         _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
         
@@ -133,9 +133,9 @@ imageViewPosition = _imageViewPosition;
         }
     }
     else if(_imageViewPosition == UIImageViewPositionLeftTop || _imageViewPosition == UIImageViewPositionRightTop){
-        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
-        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
-        _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
+        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
         if (_cellImageView.frame.size.height > DEFAULT_IMAGE_MAX_HEIGHT) {
             _imageViewSize.height = DEFAULT_IMAGE_MAX_HEIGHT;
         }
@@ -169,8 +169,8 @@ imageViewPosition = _imageViewPosition;
     }
     
     if (_imageViewPosition == UIImageViewPositionLeft || _imageViewPosition == UIImageViewPositionRight) {
-        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
-        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
+        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
         
         _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
         
@@ -182,8 +182,8 @@ imageViewPosition = _imageViewPosition;
         }
     }
     else if(_imageViewPosition == UIImageViewPositionLeftTop || _imageViewPosition == UIImageViewPositionRightTop){
-        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
-        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
+        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
         
         if (_cellImageView.frame.size.height > DEFAULT_IMAGE_MAX_HEIGHT) {
             _imageViewSize.height = DEFAULT_IMAGE_MAX_HEIGHT;

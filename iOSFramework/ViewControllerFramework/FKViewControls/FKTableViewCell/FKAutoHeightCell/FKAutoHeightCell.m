@@ -97,9 +97,9 @@ height = _height;
 	_detailLabel.text = detailString;
     _noteLabel.text = noteString;
     
-    _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
-    _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
-    _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
+    _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+    _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+    _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
     _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
 }
 
@@ -113,8 +113,8 @@ height = _height;
 	_detailLabel.text = detailString;
     _noteLabel.text = @"";
     
-    _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
-    _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeCharacterWrap];
+    _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+    _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
     _height = _titleLabelSize.height + _detailLabelSize.height + 12;
 }
 
