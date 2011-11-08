@@ -214,6 +214,8 @@
 		46921D7614525D0D00FA108E /* UIApplication+iOSAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 46921D7414525D0C00FA108E /* UIApplication+iOSAddtions.m */; };
 		46921D8E1452808900FA108E /* KeyChainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 46921D8C1452808800FA108E /* KeyChainUtils.h */; };
 		46921D8F1452808900FA108E /* KeyChainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 46921D8D1452808900FA108E /* KeyChainUtils.m */; };
+		4697330A146962270074EAF3 /* FKMapRouteLayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 46973308146962270074EAF3 /* FKMapRouteLayerView.h */; };
+		4697330B146962270074EAF3 /* FKMapRouteLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46973309146962270074EAF3 /* FKMapRouteLayerView.m */; };
 		469FEE571453CFCD00B0AFAE /* MsgAlertHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 469FEE551453CFCD00B0AFAE /* MsgAlertHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		469FEE581453CFCD00B0AFAE /* MsgAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 469FEE561453CFCD00B0AFAE /* MsgAlertHelper.m */; };
 		469FEE5B1453DA2B00B0AFAE /* DFObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 469FEE591453DA2B00B0AFAE /* DFObject.h */; };
@@ -519,6 +521,8 @@
 		46921D7414525D0C00FA108E /* UIApplication+iOSAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+iOSAddtions.m"; sourceTree = "<group>"; };
 		46921D8C1452808800FA108E /* KeyChainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainUtils.h; sourceTree = "<group>"; };
 		46921D8D1452808900FA108E /* KeyChainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainUtils.m; sourceTree = "<group>"; };
+		46973308146962270074EAF3 /* FKMapRouteLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKMapRouteLayerView.h; sourceTree = "<group>"; };
+		46973309146962270074EAF3 /* FKMapRouteLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKMapRouteLayerView.m; sourceTree = "<group>"; };
 		469FEE4E1453B87400B0AFAE /* testDataEx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testDataEx; sourceTree = "<group>"; };
 		469FEE551453CFCD00B0AFAE /* MsgAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgAlertHelper.h; sourceTree = "<group>"; };
 		469FEE561453CFCD00B0AFAE /* MsgAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgAlertHelper.m; sourceTree = "<group>"; };
@@ -672,6 +676,7 @@
 		46895DA6145ED33A0076F17E /* FKViewControls */ = {
 			isa = PBXGroup;
 			children = (
+				46973307146962270074EAF3 /* FKMapRouteLayerView */,
 				460FB31214657C1E003254C6 /* FKView */,
 				46895DA7145ED33A0076F17E /* FKTableView */,
 				46895DA8145ED33A0076F17E /* FKTableViewCell */,
@@ -935,6 +940,15 @@
 				46921D6014525C9C00FA108E /* NSData+iOSAddtions.m */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		46973307146962270074EAF3 /* FKMapRouteLayerView */ = {
+			isa = PBXGroup;
+			children = (
+				46973308146962270074EAF3 /* FKMapRouteLayerView.h */,
+				46973309146962270074EAF3 /* FKMapRouteLayerView.m */,
+			);
+			path = FKMapRouteLayerView;
 			sourceTree = "<group>";
 		};
 		46A61315144B1D87001021CB /* BaseComponents */ = {
@@ -1350,6 +1364,7 @@
 				18EF2B26146780FB00CA8C68 /* FKAutoHeightImageCell.h in Headers */,
 				18EF2B561467D1CF00CA8C68 /* FKRefreshTableView.h in Headers */,
 				18682F2C14691C620046702A /* UserDefaultHelper.h in Headers */,
+				4697330A146962270074EAF3 /* FKMapRouteLayerView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1543,6 +1558,7 @@
 				18EF2B27146780FB00CA8C68 /* FKAutoHeightImageCell.m in Sources */,
 				18EF2B571467D1CF00CA8C68 /* FKRefreshTableView.m in Sources */,
 				18682F2D14691C620046702A /* UserDefaultHelper.m in Sources */,
+				4697330B146962270074EAF3 /* FKMapRouteLayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
