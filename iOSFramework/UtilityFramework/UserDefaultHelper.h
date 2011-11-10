@@ -14,6 +14,10 @@
 
 + (void) SaveObjectToUserDefault: (id) value forKey: (NSString *) keyString;
 
++ (void) SaveCustomObjectToUserDefault: (id) customValue forKey: (NSString *) keyString;
+
 + (id) GetValueFromUserDefaultByKey: (NSString *) keyString;
+
++ (id) GetCustomObjectFromUserDefaultByKey: (NSString *) keyString;
 
 @end

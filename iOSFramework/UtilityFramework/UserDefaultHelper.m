@@ -16,9 +16,23 @@
     [usrDefault synchronize];
 }
 
++ (void) SaveCustomObjectToUserDefault: (id) customValue forKey: (NSString *) keyString{
+    NSUserDefaults *usrDefault = [NSUserDefaults standardUserDefaults];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:customValue];
+    [usrDefault setValue:data forKey:keyString];
+    [usrDefault synchronize];
+}
+
 + (id) GetValueFromUserDefaultByKey: (NSString *) keyString{
     NSUserDefaults *usrDefault = [NSUserDefaults standardUserDefaults];
     return [usrDefault objectForKey:keyString];
+}
+
++ (id) GetCustomObjectFromUserDefaultByKey: (NSString *) keyString{
+    NSUserDefaults *usrDefault = [NSUserDefaults standardUserDefaults];
+    NSData *data = [usrDefault objectForKey:keyString];
+    id object=[NSKeyedUnarchiver unarchiveObjectWithData:data];
+    return object;
 }
 
 @end

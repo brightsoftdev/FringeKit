@@ -11,15 +11,15 @@
 
 @interface FKAutoHeightCell : FKTableViewCell{
     
-UILabel *titleLabel;
-UILabel *detailLabel;
-UILabel *noteLabel;
-CGFloat height;
-
-CGSize titleLabelSize;
-CGSize detailLabelSize;
-CGSize noteLabelSize;
-CGFloat width;
+    UILabel *titleLabel;
+    UILabel *detailLabel;
+    UILabel *noteLabel;
+    CGFloat height;
+    
+    CGSize titleLabelSize;
+    CGSize detailLabelSize;
+    CGSize noteLabelSize;
+    CGFloat width;
     
 }
 
