@@ -33,7 +33,7 @@ height = _height,
 imageViewSize = _imageViewSize,
 imageViewPosition = _imageViewPosition;
 
-@synthesize width;
+@synthesize width = _width;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
@@ -76,7 +76,7 @@ imageViewPosition = _imageViewPosition;
         [myContentView addSubview:_cellImageView];
         [_cellImageView release];
 	}
-    
+    _width = DEFAULT_CELL_WIDTH;
 	return self;
 }
 
@@ -100,102 +100,110 @@ imageViewPosition = _imageViewPosition;
 //    _noteLabel.text = [noteArray objectAtIndex:0];
 //}
 
--(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setNoteWithString: (NSString *) noteString setCellWidth: (CGFloat)cellWidth{
+-(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setNoteWithString: (NSString *) noteString{
     //get the max length string to calculate the height
-    width = cellWidth;
-    if (width > DEFAULT_CELL_WIDTH) {
-        width = DEFAULT_CELL_WIDTH;
+    if (_width > DEFAULT_CELL_WIDTH) {
+        _width = DEFAULT_CELL_WIDTH;
     }
     
-    _titleLabel.text = titleString;
-	_detailLabel.text = detailString;
-    _noteLabel.text = noteString;
-    
-    if (_cellImageView.frame.size.width > DEFAULT_IMAGE_MAX_WIDTH) {
-        _imageViewSize.width = DEFAULT_IMAGE_MAX_WIDTH;
+    if (([titleString isEqualToString:@""] || titleString == nil) && ([detailString isEqualToString:@""] || detailString == nil) && ([noteString isEqualToString:@""] || noteString == nil)) {
+        _height = 44;
     }
     else{
-        _imageViewSize.width = _cellImageView.frame.size.width;
-    }
-    
-    if (_imageViewPosition == UIImageViewPositionLeft || _imageViewPosition == UIImageViewPositionRight) {
-        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
-        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
-        _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _titleLabel.text = titleString;
+        _detailLabel.text = detailString;
+        _noteLabel.text = noteString;
         
-        _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
+        if (_cellImageView.frame.size.width > DEFAULT_IMAGE_MAX_WIDTH) {
+            _imageViewSize.width = DEFAULT_IMAGE_MAX_WIDTH;
+        }
+        else{
+            _imageViewSize.width = _cellImageView.frame.size.width;
+        }
         
-        if (_cellImageView.frame.size.height > _height) {
-            _imageViewSize.height = _height;
-        }
-        else{
-            _imageViewSize.height = _cellImageView.frame.size.height;
-        }
-    }
-    else if(_imageViewPosition == UIImageViewPositionLeftTop || _imageViewPosition == UIImageViewPositionRightTop){
-        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
-        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
-        _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
-        if (_cellImageView.frame.size.height > DEFAULT_IMAGE_MAX_HEIGHT) {
-            _imageViewSize.height = DEFAULT_IMAGE_MAX_HEIGHT;
-        }
-        else{
-            _imageViewSize.height = _cellImageView.frame.size.height;
-        }
-        if (_imageViewSize.height > _titleLabelSize.height) {
-            _height = _imageViewSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
-        }
-        else{
+        if (_imageViewPosition == UIImageViewPositionLeft || _imageViewPosition == UIImageViewPositionRight) {
+            _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(_width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+            _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(_width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+            _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(_width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+            
             _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
+            
+            if (_cellImageView.frame.size.height > _height) {
+                _imageViewSize.height = _height;
+            }
+            else{
+                _imageViewSize.height = _cellImageView.frame.size.height;
+            }
+        }
+        else if(_imageViewPosition == UIImageViewPositionLeftTop || _imageViewPosition == UIImageViewPositionRightTop){
+            _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(_width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+            _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(_width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+            _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(_width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+            if (_cellImageView.frame.size.height > DEFAULT_IMAGE_MAX_HEIGHT) {
+                _imageViewSize.height = DEFAULT_IMAGE_MAX_HEIGHT;
+            }
+            else{
+                _imageViewSize.height = _cellImageView.frame.size.height;
+            }
+            if (_imageViewSize.height > _titleLabelSize.height) {
+                _height = _imageViewSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
+            }
+            else{
+                _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
+            }
         }
     }
 }
 
--(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setCellWidth: (CGFloat)cellWidth{
-    width = cellWidth;
-    if (width > DEFAULT_CELL_WIDTH) {
-        width = DEFAULT_CELL_WIDTH;
+-(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString{
+    if (_width > DEFAULT_CELL_WIDTH) {
+        _width = DEFAULT_CELL_WIDTH;
     }
     
-    _titleLabel.text = titleString;
-	_detailLabel.text = detailString;
-    _noteLabel.text = @"";
-    
-    if (_cellImageView.frame.size.width > DEFAULT_IMAGE_MAX_WIDTH) {
-        _imageViewSize.width = DEFAULT_IMAGE_MAX_WIDTH;
+    if (([titleString isEqualToString:@""] || titleString == nil) && ([detailString isEqualToString:@""] || detailString == nil)) {
+        _height = 44;
     }
     else{
-        _imageViewSize.width = _cellImageView.frame.size.width;
-    }
-    
-    if (_imageViewPosition == UIImageViewPositionLeft || _imageViewPosition == UIImageViewPositionRight) {
-        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
-        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _titleLabel.text = titleString;
+        _detailLabel.text = detailString;
+        _noteLabel.text = @"";
         
-        _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
-        
-        if (_cellImageView.frame.size.height > _height) {
-            _imageViewSize.height = _height;
+        if (_cellImageView.frame.size.width > DEFAULT_IMAGE_MAX_WIDTH) {
+            _imageViewSize.width = DEFAULT_IMAGE_MAX_WIDTH;
         }
         else{
-            _imageViewSize.height = _cellImageView.frame.size.height;
+            _imageViewSize.width = _cellImageView.frame.size.width;
         }
-    }
-    else if(_imageViewPosition == UIImageViewPositionLeftTop || _imageViewPosition == UIImageViewPositionRightTop){
-        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
-        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
         
-        if (_cellImageView.frame.size.height > DEFAULT_IMAGE_MAX_HEIGHT) {
-            _imageViewSize.height = DEFAULT_IMAGE_MAX_HEIGHT;
-        }
-        else{
-            _imageViewSize.height = _cellImageView.frame.size.height;
-        }
-        if (_imageViewSize.height > _titleLabelSize.height) {
-            _height = _imageViewSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
-        }
-        else{
+        if (_imageViewPosition == UIImageViewPositionLeft || _imageViewPosition == UIImageViewPositionRight) {
+            _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(_width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+            _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(_width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+            
             _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
+            
+            if (_cellImageView.frame.size.height > _height) {
+                _imageViewSize.height = _height;
+            }
+            else{
+                _imageViewSize.height = _cellImageView.frame.size.height;
+            }
+        }
+        else if(_imageViewPosition == UIImageViewPositionLeftTop || _imageViewPosition == UIImageViewPositionRightTop){
+            _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(_width - 10 - _imageViewSize.width, 2000) lineBreakMode:UILineBreakModeWordWrap];
+            _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(_width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+            
+            if (_cellImageView.frame.size.height > DEFAULT_IMAGE_MAX_HEIGHT) {
+                _imageViewSize.height = DEFAULT_IMAGE_MAX_HEIGHT;
+            }
+            else{
+                _imageViewSize.height = _cellImageView.frame.size.height;
+            }
+            if (_imageViewSize.height > _titleLabelSize.height) {
+                _height = _imageViewSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
+            }
+            else{
+                _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
+            }
         }
     }
 }
@@ -222,12 +230,12 @@ imageViewPosition = _imageViewPosition;
                 boundsX = contentRect.origin.x + 10;
             }
             
-            frame = CGRectMake(boundsX, 4, width - 10 - _imageViewSize.width, _titleLabelSize.height);
+            frame = CGRectMake(boundsX, 4, _width - 10 - _imageViewSize.width, _titleLabelSize.height);
             [_titleLabel setFrame:frame];
-            frame = CGRectMake(boundsX, _titleLabelSize.height + 8, width - 10 - _imageViewSize.width, _detailLabelSize.height);
+            frame = CGRectMake(boundsX, _titleLabelSize.height + 8, _width - 10 - _imageViewSize.width, _detailLabelSize.height);
             [_detailLabel setFrame:frame];
             if (!([_noteLabel.text isEqualToString:@""])) {
-                frame = CGRectMake(boundsX, _titleLabelSize.height + _detailLabelSize.height + 12, width - 10 - _imageViewSize.width, _noteLabelSize.height);
+                frame = CGRectMake(boundsX, _titleLabelSize.height + _detailLabelSize.height + 12, _width - 10 - _imageViewSize.width, _noteLabelSize.height);
                 [_noteLabel setFrame:frame];
             }
             
@@ -235,37 +243,37 @@ imageViewPosition = _imageViewPosition;
                 frame = CGRectMake(0, (_height - _imageViewSize.height)/2, _imageViewSize.width, _imageViewSize.height);
             }
             else{
-                frame = CGRectMake(width - _imageViewSize.width, (_height - _imageViewSize.height)/2, _imageViewSize.width, _imageViewSize.height);
+                frame = CGRectMake(_width - _imageViewSize.width, (_height - _imageViewSize.height)/2, _imageViewSize.width, _imageViewSize.height);
             }
             [_cellImageView setFrame:frame];
         }
         else if(_imageViewPosition == UIImageViewPositionLeftTop || _imageViewPosition == UIImageViewPositionRightTop){
             boundsX = contentRect.origin.x;
             if (_imageViewPosition == UIImageViewPositionLeftTop) {
-                frame = CGRectMake(boundsX + _imageViewSize.width, 4, width - 10 - _imageViewSize.width, _titleLabelSize.height); 
+                frame = CGRectMake(boundsX + _imageViewSize.width, 4, _width - 10 - _imageViewSize.width, _titleLabelSize.height); 
                 [_titleLabel setFrame:frame];
                 frame = CGRectMake(0, 0, _imageViewSize.width, _imageViewSize.height);
                 [_cellImageView setFrame:frame];
             }
             else{
-                frame = CGRectMake(boundsX + 10, 4, width - 10 - _imageViewSize.width, _titleLabelSize.height);
+                frame = CGRectMake(boundsX + 10, 4, _width - 10 - _imageViewSize.width, _titleLabelSize.height);
                 [_titleLabel setFrame:frame];
-                frame = CGRectMake(width - _imageViewSize.width, 0, _imageViewSize.width, _imageViewSize.height);
+                frame = CGRectMake(_width - _imageViewSize.width, 0, _imageViewSize.width, _imageViewSize.height);
                 [_cellImageView setFrame:frame];
             }
             if (_imageViewSize.height > _titleLabelSize.height) {
-                frame = CGRectMake(boundsX + 10, _imageViewSize.height + 8, width - 20, _detailLabelSize.height);
+                frame = CGRectMake(boundsX + 10, _imageViewSize.height + 8, _width - 20, _detailLabelSize.height);
                 [_detailLabel setFrame:frame];
                 if (!([_noteLabel.text isEqualToString:@""])) {
-                    frame = CGRectMake(boundsX + 10, _imageViewSize.height + _detailLabelSize.height + 12, width - 20, _noteLabelSize.height);
+                    frame = CGRectMake(boundsX + 10, _imageViewSize.height + _detailLabelSize.height + 12, _width - 20, _noteLabelSize.height);
                     [_noteLabel setFrame:frame];
                 }
             }
             else{
-                frame = CGRectMake(boundsX + 10, _titleLabelSize.height + 8, width - 20, _detailLabelSize.height);
+                frame = CGRectMake(boundsX + 10, _titleLabelSize.height + 8, _width - 20, _detailLabelSize.height);
                 [_detailLabel setFrame:frame];
                 if (!([_noteLabel.text isEqualToString:@""])) {
-                    frame = CGRectMake(boundsX + 10, _titleLabelSize.height + _detailLabelSize.height + 12, width - 20, _noteLabelSize.height);
+                    frame = CGRectMake(boundsX + 10, _titleLabelSize.height + _detailLabelSize.height + 12, _width - 20, _noteLabelSize.height);
                     [_noteLabel setFrame:frame];
                 }
             }
