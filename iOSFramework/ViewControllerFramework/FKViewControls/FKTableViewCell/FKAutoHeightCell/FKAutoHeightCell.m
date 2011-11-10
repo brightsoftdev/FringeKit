@@ -25,7 +25,7 @@ detailLabel=_detailLabel,
 noteLabel=_noteLabel,
 height = _height;
 
-@synthesize width;
+@synthesize width = _width;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
@@ -62,6 +62,7 @@ height = _height;
         [myContentView addSubview:_noteLabel];
 		[_noteLabel release];
 	}
+    _width = DEFAULT_CELL_WIDTH;
     
 	return self;
 }
@@ -86,36 +87,45 @@ height = _height;
     _noteLabel.text = [noteArray objectAtIndex:0];
 }
 
--(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setNoteWithString: (NSString *) noteString setCellWidth: (CGFloat)cellWidth{
+-(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setNoteWithString: (NSString *) noteString {
     //get the max length string to calculate the height
-    width = cellWidth;
-    if (width > DEFAULT_CELL_WIDTH) {
-        width = DEFAULT_CELL_WIDTH;
+    if (_width > DEFAULT_CELL_WIDTH) {
+        _width = DEFAULT_CELL_WIDTH;
     }
     
-	_titleLabel.text = titleString;
-	_detailLabel.text = detailString;
-    _noteLabel.text = noteString;
-    
-    _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
-    _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
-    _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
-    _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
+    if (([titleString isEqualToString:@""] || titleString == nil) && ([detailString isEqualToString:@""] || detailString == nil) && ([noteString isEqualToString:@""] || noteString == nil)) {
+        _height = 44;
+    }
+    else{
+        _titleLabel.text = titleString;
+        _detailLabel.text = detailString;
+        _noteLabel.text = noteString;
+        
+        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(_width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(_width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _noteLabelSize = [noteString sizeWithFont:_noteLabel.font constrainedToSize:CGSizeMake(_width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _height = _titleLabelSize.height + _detailLabelSize.height + _noteLabelSize.height + 16;
+    }
 }
 
--(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setCellWidth: (CGFloat)cellWidth{
-    width = cellWidth;
-    if (width > DEFAULT_CELL_WIDTH) {
-        width = DEFAULT_CELL_WIDTH;
+-(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString{
+    NSLog(@"_width:%f", _width);
+    if (_width > DEFAULT_CELL_WIDTH) {
+        _width = DEFAULT_CELL_WIDTH;
     }
     
-	_titleLabel.text = titleString;
-	_detailLabel.text = detailString;
-    _noteLabel.text = @"";
-    
-    _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
-    _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
-    _height = _titleLabelSize.height + _detailLabelSize.height + 12;
+    if (([titleString isEqualToString:@""] || titleString == nil) && ([detailString isEqualToString:@""] || detailString == nil)) {
+        _height = 44;
+    }
+    else{
+        _titleLabel.text = titleString;
+        _detailLabel.text = detailString;
+        _noteLabel.text = @"";
+        
+        _titleLabelSize = [titleString sizeWithFont:_titleLabel.font constrainedToSize:CGSizeMake(_width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _detailLabelSize = [detailString sizeWithFont:_detailLabel.font constrainedToSize:CGSizeMake(_width - 20, 2000) lineBreakMode:UILineBreakModeWordWrap];
+        _height = _titleLabelSize.height + _detailLabelSize.height + 12; 
+    }
 }
 
 /*
@@ -143,14 +153,14 @@ height = _height;
 		 make the label 200 pixels wide
 		 make the label 20 pixels high
          */
-        frame = CGRectMake(boundsX, 4, width - 20, _titleLabelSize.height);
+        frame = CGRectMake(boundsX, 4, _width - 20, _titleLabelSize.height);
         [_titleLabel setFrame:frame];
         
         // place the url label
-        frame = CGRectMake(boundsX, _titleLabelSize.height + 8, width - 20, _detailLabelSize.height);
+        frame = CGRectMake(boundsX, _titleLabelSize.height + 8, _width - 20, _detailLabelSize.height);
         [_detailLabel setFrame:frame];
         if (!([_noteLabel.text isEqualToString:@""])) {
-            frame = CGRectMake(boundsX, _titleLabelSize.height + _detailLabelSize.height + 12, width - 20, _noteLabelSize.height);
+            frame = CGRectMake(boundsX, _titleLabelSize.height + _detailLabelSize.height + 12, _width - 20, _noteLabelSize.height);
             [_noteLabel setFrame:frame];
         }
 	}
