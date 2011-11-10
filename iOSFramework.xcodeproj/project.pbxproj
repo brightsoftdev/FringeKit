@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		18682F2C14691C620046702A /* UserDefaultHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 18682F2A14691C620046702A /* UserDefaultHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18682F2D14691C620046702A /* UserDefaultHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18682F2B14691C620046702A /* UserDefaultHelper.m */; };
+		18E48502146B5A1A0058065B /* FKAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18E48500146B5A1A0058065B /* FKAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18E48503146B5A1A0058065B /* FKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E48501146B5A1A0058065B /* FKAlertView.m */; };
 		18EF2B26146780FB00CA8C68 /* FKAutoHeightImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 18EF2B24146780FB00CA8C68 /* FKAutoHeightImageCell.h */; };
 		18EF2B27146780FB00CA8C68 /* FKAutoHeightImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF2B25146780FB00CA8C68 /* FKAutoHeightImageCell.m */; };
 		18EF2B561467D1CF00CA8C68 /* FKRefreshTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18EF2B541467D1CF00CA8C68 /* FKRefreshTableView.h */; };
@@ -329,6 +331,8 @@
 /* Begin PBXFileReference section */
 		18682F2A14691C620046702A /* UserDefaultHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultHelper.h; sourceTree = "<group>"; };
 		18682F2B14691C620046702A /* UserDefaultHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultHelper.m; sourceTree = "<group>"; };
+		18E48500146B5A1A0058065B /* FKAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAlertView.h; sourceTree = "<group>"; };
+		18E48501146B5A1A0058065B /* FKAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAlertView.m; sourceTree = "<group>"; };
 		18EF2B24146780FB00CA8C68 /* FKAutoHeightImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAutoHeightImageCell.h; sourceTree = "<group>"; };
 		18EF2B25146780FB00CA8C68 /* FKAutoHeightImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAutoHeightImageCell.m; sourceTree = "<group>"; };
 		18EF2B541467D1CF00CA8C68 /* FKRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKRefreshTableView.h; sourceTree = "<group>"; };
@@ -697,6 +701,8 @@
 			children = (
 				460FB31414657C4E003254C6 /* FKViewController.h */,
 				460FB31514657C4E003254C6 /* FKViewController.m */,
+				18E48500146B5A1A0058065B /* FKAlertView.h */,
+				18E48501146B5A1A0058065B /* FKAlertView.m */,
 			);
 			path = FKView;
 			sourceTree = "<group>";
@@ -1422,6 +1428,7 @@
 				4697332B146972E80074EAF3 /* UICGPolyline.h in Headers */,
 				4697332D146972E80074EAF3 /* UICGRoute.h in Headers */,
 				4697332F146972E80074EAF3 /* UICGStep.h in Headers */,
+				18E48502146B5A1A0058065B /* FKAlertView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1623,6 +1630,7 @@
 				4697332C146972E80074EAF3 /* UICGPolyline.m in Sources */,
 				4697332E146972E80074EAF3 /* UICGRoute.m in Sources */,
 				46973330146972E80074EAF3 /* UICGStep.m in Sources */,
+				18E48503146B5A1A0058065B /* FKAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
