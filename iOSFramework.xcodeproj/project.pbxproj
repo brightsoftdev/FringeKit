@@ -191,6 +191,8 @@
 		4689EF521466B9D700318682 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4689EF511466B9D700318682 /* QuartzCore.framework */; };
 		4689EF541466B9ED00318682 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4689EF531466B9ED00318682 /* CoreGraphics.framework */; };
 		4689EF781466BD2C00318682 /* CorePlot-CocoaTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 4689EF771466BD2700318682 /* CorePlot-CocoaTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		469105E9146C089E00059819 /* FKPunchScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 469105E7146C089E00059819 /* FKPunchScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		469105EA146C089E00059819 /* FKPunchScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 469105E8146C089E00059819 /* FKPunchScrollView.m */; };
 		46921D4114525A9600FA108E /* Category.h in Headers */ = {isa = PBXBuildFile; fileRef = 46921D3F14525A9600FA108E /* Category.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46921D4D14525BB700FA108E /* NSString+iOSAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = 46921D4B14525BB700FA108E /* NSString+iOSAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46921D4E14525BB700FA108E /* NSString+iOSAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 46921D4C14525BB700FA108E /* NSString+iOSAddtions.m */; };
@@ -514,6 +516,8 @@
 		4689EF511466B9D700318682 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4689EF531466B9ED00318682 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4689EF771466BD2700318682 /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
+		469105E7146C089E00059819 /* FKPunchScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKPunchScrollView.h; sourceTree = "<group>"; };
+		469105E8146C089E00059819 /* FKPunchScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKPunchScrollView.m; sourceTree = "<group>"; };
 		46921D3F14525A9600FA108E /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		46921D4B14525BB700FA108E /* NSString+iOSAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+iOSAddtions.h"; sourceTree = "<group>"; };
 		46921D4C14525BB700FA108E /* NSString+iOSAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+iOSAddtions.m"; sourceTree = "<group>"; };
@@ -710,6 +714,7 @@
 		46895DA6145ED33A0076F17E /* FKViewControls */ = {
 			isa = PBXGroup;
 			children = (
+				469105E5146C086900059819 /* FKPunchScrollView */,
 				46973307146962270074EAF3 /* FKMapRouteLayerView */,
 				460FB31214657C1E003254C6 /* FKView */,
 				46895DA7145ED33A0076F17E /* FKTableView */,
@@ -928,6 +933,15 @@
 				4689EF4F1466B88100318682 /* CorePlotProbes.d */,
 			);
 			path = OtherResource;
+			sourceTree = "<group>";
+		};
+		469105E5146C086900059819 /* FKPunchScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				469105E7146C089E00059819 /* FKPunchScrollView.h */,
+				469105E8146C089E00059819 /* FKPunchScrollView.m */,
+			);
+			path = FKPunchScrollView;
 			sourceTree = "<group>";
 		};
 		46921D3E14525A9600FA108E /* Categories */ = {
@@ -1429,6 +1443,7 @@
 				4697332D146972E80074EAF3 /* UICGRoute.h in Headers */,
 				4697332F146972E80074EAF3 /* UICGStep.h in Headers */,
 				18E48502146B5A1A0058065B /* FKAlertView.h in Headers */,
+				469105E9146C089E00059819 /* FKPunchScrollView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1631,6 +1646,7 @@
 				4697332E146972E80074EAF3 /* UICGRoute.m in Sources */,
 				46973330146972E80074EAF3 /* UICGStep.m in Sources */,
 				18E48503146B5A1A0058065B /* FKAlertView.m in Sources */,
+				469105EA146C089E00059819 /* FKPunchScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
