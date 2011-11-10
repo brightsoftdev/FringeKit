@@ -11,15 +11,15 @@
 
 @interface FKAutoHeightCell : FKTableViewCell{
     
-UILabel *titleLabel;
-UILabel *detailLabel;
-UILabel *noteLabel;
-CGFloat height;
-
-CGSize titleLabelSize;
-CGSize detailLabelSize;
-CGSize noteLabelSize;
-CGFloat width;
+    UILabel *titleLabel;
+    UILabel *detailLabel;
+    UILabel *noteLabel;
+    CGFloat height;
+    
+    CGSize titleLabelSize;
+    CGSize detailLabelSize;
+    CGSize noteLabelSize;
+    CGFloat width;
     
 }
 
@@ -27,9 +27,10 @@ CGFloat width;
 
 -(void)setDataWithArray:(NSArray *)titleArray setDetailWithArray: (NSArray *) detailArray setNoteWithArray: (NSArray *) noteArray;
 
--(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setNoteWithString: (NSString *) noteString setCellWidth: (CGFloat)cellWidth;
+-(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setNoteWithString: (NSString *) noteString ;
 
--(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString setCellWidth: (CGFloat)cellWidth;
+
+-(void)setDataWithString:(NSString *)titleString setDetailWithString: (NSString *) detailString;
 
 // internal function to ease setting up label text
 -(UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor font:(UIFont *)font bold:(BOOL)bold;
