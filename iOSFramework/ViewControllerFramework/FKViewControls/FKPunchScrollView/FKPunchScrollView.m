@@ -22,6 +22,7 @@
 - (NSUInteger)sectionCount;
 - (NSUInteger)pagesCount;
 
+
 @end
 
 @implementation FKPunchScrollView
