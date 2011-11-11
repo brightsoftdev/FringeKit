@@ -15,6 +15,8 @@
     CGSize imageViewSize;  
     
     NSUInteger imageViewPosition;
+    
+    NSString *imageFilePath;
 }
 
 typedef enum {
@@ -48,5 +50,6 @@ typedef enum {
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGSize imageViewSize;
 @property (nonatomic, assign) NSUInteger imageViewPosition;
+@property (nonatomic, copy) NSString *imageFilePath;
 
 @end

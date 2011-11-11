@@ -31,7 +31,8 @@ detailLabel=_detailLabel,
 noteLabel=_noteLabel,
 height = _height,
 imageViewSize = _imageViewSize,
-imageViewPosition = _imageViewPosition;
+imageViewPosition = _imageViewPosition,
+imageFilePath = _imageFilePath;
 
 @synthesize width = _width;
 
@@ -113,6 +114,7 @@ imageViewPosition = _imageViewPosition;
         _titleLabel.text = titleString;
         _detailLabel.text = detailString;
         _noteLabel.text = noteString;
+        _cellImageView.image =[UIImage imageNamed:_imageFilePath];
         
         if (_cellImageView.frame.size.width > DEFAULT_IMAGE_MAX_WIDTH) {
             _imageViewSize.width = DEFAULT_IMAGE_MAX_WIDTH;
@@ -167,6 +169,7 @@ imageViewPosition = _imageViewPosition;
         _titleLabel.text = titleString;
         _detailLabel.text = detailString;
         _noteLabel.text = @"";
+        _cellImageView.image =[UIImage imageNamed:_imageFilePath];
         
         if (_cellImageView.frame.size.width > DEFAULT_IMAGE_MAX_WIDTH) {
             _imageViewSize.width = DEFAULT_IMAGE_MAX_WIDTH;
