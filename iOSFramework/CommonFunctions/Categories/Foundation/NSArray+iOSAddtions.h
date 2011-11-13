@@ -16,6 +16,7 @@
 - (int)randomIndex;
 - (void)shuffle;
 - (NSArray *)shuffledArray;
+- (NSArray *) sortByField: (NSString *) sortFieldString;
 
 @end
 

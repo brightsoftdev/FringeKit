@@ -299,7 +299,6 @@
 		46B51A65145193AE00F2DE98 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B51A5E145193AE00F2DE98 /* FMDatabase.m */; };
 		46B51A66145193AE00F2DE98 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B51A5F145193AE00F2DE98 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46B51A67145193AE00F2DE98 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B51A60145193AE00F2DE98 /* FMDatabaseAdditions.m */; };
-		46B51A68145193AE00F2DE98 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B51A61145193AE00F2DE98 /* fmdb.m */; };
 		46B51A69145193AE00F2DE98 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B51A62145193AE00F2DE98 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46B51A6A145193AE00F2DE98 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B51A63145193AE00F2DE98 /* FMResultSet.m */; };
 		46B51A721451949800F2DE98 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B51A711451949800F2DE98 /* libsqlite3.dylib */; };
@@ -637,7 +636,6 @@
 		46B51A5E145193AE00F2DE98 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		46B51A5F145193AE00F2DE98 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		46B51A60145193AE00F2DE98 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		46B51A61145193AE00F2DE98 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
 		46B51A62145193AE00F2DE98 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		46B51A63145193AE00F2DE98 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		46B51A711451949800F2DE98 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -1182,7 +1180,6 @@
 				46B51A5E145193AE00F2DE98 /* FMDatabase.m */,
 				46B51A5F145193AE00F2DE98 /* FMDatabaseAdditions.h */,
 				46B51A60145193AE00F2DE98 /* FMDatabaseAdditions.m */,
-				46B51A61145193AE00F2DE98 /* fmdb.m */,
 				46B51A62145193AE00F2DE98 /* FMResultSet.h */,
 				46B51A63145193AE00F2DE98 /* FMResultSet.m */,
 			);
@@ -1630,7 +1627,6 @@
 				46B51A5A14518B4700F2DE98 /* SBJsonWriter.m in Sources */,
 				46B51A65145193AE00F2DE98 /* FMDatabase.m in Sources */,
 				46B51A67145193AE00F2DE98 /* FMDatabaseAdditions.m in Sources */,
-				46B51A68145193AE00F2DE98 /* fmdb.m in Sources */,
 				46B51A6A145193AE00F2DE98 /* FMResultSet.m in Sources */,
 				46BF38691451C62300BEF303 /* ObjectMapping.m in Sources */,
 				46921D4E14525BB700FA108E /* NSString+iOSAddtions.m in Sources */,

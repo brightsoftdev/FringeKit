@@ -76,15 +76,22 @@
 	return shuffledArray;
 }
 
+- (NSArray *) sortByField: (NSString *) sortFieldString{
+    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:sortFieldString ascending:YES] autorelease];
+    NSArray *sortDescriptorsArray = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [self sortedArrayUsingDescriptors:sortDescriptorsArray];
+    return sortedArray;
+}
+
 @end
 
 @implementation NSMutableArray (iOSAddtions)
 
 - (NSArray *) sortByField: (NSString *) sortFieldString{
-    
     NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:sortFieldString ascending:YES] autorelease];
     NSArray *sortDescriptorsArray = [NSArray arrayWithObject:sortDescriptor];
     NSArray *sortedArray = [self sortedArrayUsingDescriptors:sortDescriptorsArray];
+    //NSLog(@"%@", sortedArray);
     return sortedArray;
 }
 
