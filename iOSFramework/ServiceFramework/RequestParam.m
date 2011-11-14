@@ -35,7 +35,9 @@
         }
         _postConditionKeyName = DEFAULT_POST_KEY;
         if (!_requestUrl) {
-            _requestUrl = [[NSMutableString alloc] initWithString:@""];
+            //_requestUrl = [[NSMutableString alloc] initWithString:@""];
+            _requestUrl = [NSMutableString stringWithString:@""];
+
         }
         if (!_requestUrlParams) {
             _requestUrlParams = [NSMutableDictionary new];
