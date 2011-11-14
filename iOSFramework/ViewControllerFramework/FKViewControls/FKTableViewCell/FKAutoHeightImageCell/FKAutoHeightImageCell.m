@@ -114,7 +114,9 @@ imageFilePath = _imageFilePath;
         _titleLabel.text = titleString;
         _detailLabel.text = detailString;
         _noteLabel.text = noteString;
-        _cellImageView.image =[UIImage imageNamed:_imageFilePath];
+        if (_imageFilePath != nil && !([_imageFilePath isEqualToString:@""])) {
+            _cellImageView.image =[UIImage imageNamed:_imageFilePath];
+        }
         
         if (_cellImageView.frame.size.width > DEFAULT_IMAGE_MAX_WIDTH) {
             _imageViewSize.width = DEFAULT_IMAGE_MAX_WIDTH;
@@ -169,7 +171,9 @@ imageFilePath = _imageFilePath;
         _titleLabel.text = titleString;
         _detailLabel.text = detailString;
         _noteLabel.text = @"";
-        _cellImageView.image =[UIImage imageNamed:_imageFilePath];
+        if (_imageFilePath != nil && !([_imageFilePath isEqualToString:@""])) {
+            _cellImageView.image =[UIImage imageNamed:_imageFilePath];
+        }
         
         if (_cellImageView.frame.size.width > DEFAULT_IMAGE_MAX_WIDTH) {
             _imageViewSize.width = DEFAULT_IMAGE_MAX_WIDTH;
