@@ -70,7 +70,10 @@ static ObjectLoader *sharedObjectLoader;
     }
     
     NSDictionary *jsonObject = [jsonString JSONValue];
-    if ([_delegate respondsToSelector:_didLoadDictionaryFinishedSelector]) {
+    if ([_delegate respondsToSelector:@selector(didLoadDictionaryFinished:)]) {
+        [_delegate performSelector:@selector(didLoadDictionaryFinished:) withObject:jsonObject];
+    }
+    else if ([_delegate respondsToSelector:_didLoadDictionaryFinishedSelector]) {
         [_delegate performSelector:_didLoadDictionaryFinishedSelector withObject:jsonObject];
     }
 }
@@ -107,11 +110,19 @@ static ObjectLoader *sharedObjectLoader;
     if (jsonObject) {
         id resultObject = [self performMapping: jsonObject];
         
-        if ([_delegate respondsToSelector:_didLoadObjectFinishedSelector]) {
+        if ([_delegate respondsToSelector:@selector(didLoadObjectFinished:)]) {
+            [_delegate performSelector:@selector(didLoadObjectFinished:) withObject:resultObject];
+        }
+        else if ([_delegate respondsToSelector:_didLoadObjectFinishedSelector]) {
             [_delegate performSelector:_didLoadObjectFinishedSelector withObject:resultObject];
         }
 	} else {
-        [_delegate performSelector:_didLoadObjectFailedSelector withObject:nil];
+        if ([_delegate respondsToSelector:@selector(didLoadObjectFailed:)]) {
+            [_delegate performSelector:@selector(didLoadObjectFailed:) withObject:nil];
+        }
+        else{
+            [_delegate performSelector:_didLoadObjectFailedSelector withObject:nil];
+        }
 	}
 }
 
@@ -160,18 +171,31 @@ static ObjectLoader *sharedObjectLoader;
     if (jsonObject) {
         id resultObject = [self performMapping: jsonObject];
         
-        if ([_delegate respondsToSelector:_didLoadObjectFinishedSelector]){
+        if ([_delegate respondsToSelector:@selector(didLoadObjectFinished:)]) {
+            [_delegate performSelector:@selector(didLoadObjectFinished:) withObject:resultObject];
+        }
+        else if ([_delegate respondsToSelector:_didLoadObjectFinishedSelector]){
             [_delegate performSelector:_didLoadObjectFinishedSelector withObject:resultObject];
         }
 	} else {
-        [_delegate performSelector:_didLoadObjectFailedSelector withObject:nil];
+        if ([_delegate respondsToSelector:@selector(didLoadObjectFailed:)]) {
+            [_delegate performSelector:@selector(didLoadObjectFailed:) withObject:nil];
+        }
+        else{
+            [_delegate performSelector:_didLoadObjectFailedSelector withObject:nil];
+        }
 	}
 }
 
 - (void) requestFailed:(ASIHTTPRequest *)request {
 	NSError *error = [request error];
     NSLog(@"Response Error: %@", error);
-    [_delegate performSelector:_didLoadObjectFailedSelector withObject:error];
+    if ([_delegate respondsToSelector:@selector(didLoadObjectFailed:)]) {
+        [_delegate performSelector:@selector(didLoadObjectFailed:) withObject:error];
+    }
+    else{
+        [_delegate performSelector:_didLoadObjectFailedSelector withObject:error];
+    }
 }
 
 //load json string from remote server as a NSDictionary
@@ -188,25 +212,43 @@ static ObjectLoader *sharedObjectLoader;
     
     if (errorDescription) {
         if (![errorDescription isNilOrEmpty]) {
-            [_delegate performSelector:_didLoadObjectFailedSelector withObject:nil];
+            if ([_delegate respondsToSelector:@selector(didLoadObjectFailed:)]) {
+                [_delegate performSelector:@selector(didLoadObjectFailed:) withObject:nil];
+            }
+            else{
+                [_delegate performSelector:_didLoadObjectFailedSelector withObject:nil];
+            }
             return;
         }
     }
 	
     if (jsonObject) {
-        if ([_delegate respondsToSelector:_didLoadDictionaryFinishedSelector]) {
+        if ([_delegate respondsToSelector:@selector(didLoadDictionaryFinished:)]) {
+            [_delegate performSelector:@selector(didLoadDictionaryFinished:) withObject:jsonObject];
+        }
+        else if ([_delegate respondsToSelector:_didLoadDictionaryFinishedSelector]) {
             [_delegate performSelector:_didLoadDictionaryFinishedSelector withObject:jsonObject];
         }
 	} else {
         NSError *error = [[NSError alloc] initWithDomain:@"" code:1002 userInfo:nil];
-        [_delegate performSelector:_didLoadObjectFailedSelector withObject:error];
+        if ([_delegate respondsToSelector:@selector(didLoadObjectFailed:)]) {
+            [_delegate performSelector:@selector(didLoadObjectFailed:) withObject:error];
+        }
+        else{
+            [_delegate performSelector:_didLoadObjectFailedSelector withObject:error];
+        }
 	}
 }
 
 - (void) requestAsDictionaryFailed:(ASIHTTPRequest *)request {
 	NSError *error = [request error];
     NSLog(@"Response Error: %@", error);
-    [_delegate performSelector:_didLoadObjectFailedSelector withObject:error];
+    if ([_delegate respondsToSelector:@selector(didLoadObjectFailed:)]) {
+        [_delegate performSelector:@selector(didLoadObjectFailed:) withObject:error];
+    }
+    else{
+        [_delegate performSelector:_didLoadObjectFailedSelector withObject:error];
+    }
 }
 
 - (void) requestData: (SEL) requestFinishSelector requestFailedSelector :(SEL) requestFailedSelector withRequestMethod : (NSString *) requestMethod{
