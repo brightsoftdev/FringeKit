@@ -75,6 +75,13 @@
     return [self getSysInfoByName:"hw.model"];
 }
 
+- (NSString *) currentLanguage{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
+    NSString *currentLanguage = [languages objectAtIndex:0];
+    return currentLanguage;
+}
+
 #pragma mark sysctl utils
 - (NSUInteger) getSysInfo: (uint) typeSpecifier
 {
