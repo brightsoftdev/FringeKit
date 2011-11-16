@@ -220,8 +220,6 @@
 		46921D6214525C9C00FA108E /* NSData+iOSAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 46921D6014525C9C00FA108E /* NSData+iOSAddtions.m */; };
 		46921D6514525CC000FA108E /* UIColor+iOSAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = 46921D6314525CC000FA108E /* UIColor+iOSAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46921D6614525CC000FA108E /* UIColor+iOSAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 46921D6414525CC000FA108E /* UIColor+iOSAddtions.m */; };
-		46921D6914525CD300FA108E /* UIDevice+iOSAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = 46921D6714525CD300FA108E /* UIDevice+iOSAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		46921D6A14525CD300FA108E /* UIDevice+iOSAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 46921D6814525CD300FA108E /* UIDevice+iOSAddtions.m */; };
 		46921D6D14525CE200FA108E /* UIScreen+iOSAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = 46921D6B14525CE200FA108E /* UIScreen+iOSAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46921D6E14525CE200FA108E /* UIScreen+iOSAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 46921D6C14525CE200FA108E /* UIScreen+iOSAddtions.m */; };
 		46921D7114525CF500FA108E /* UIImage+iOSAddtions.h in Headers */ = {isa = PBXBuildFile; fileRef = 46921D6F14525CF500FA108E /* UIImage+iOSAddtions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -556,8 +554,6 @@
 		46921D6014525C9C00FA108E /* NSData+iOSAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+iOSAddtions.m"; sourceTree = "<group>"; };
 		46921D6314525CC000FA108E /* UIColor+iOSAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+iOSAddtions.h"; sourceTree = "<group>"; };
 		46921D6414525CC000FA108E /* UIColor+iOSAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+iOSAddtions.m"; sourceTree = "<group>"; };
-		46921D6714525CD300FA108E /* UIDevice+iOSAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+iOSAddtions.h"; sourceTree = "<group>"; };
-		46921D6814525CD300FA108E /* UIDevice+iOSAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+iOSAddtions.m"; sourceTree = "<group>"; };
 		46921D6B14525CE200FA108E /* UIScreen+iOSAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+iOSAddtions.h"; sourceTree = "<group>"; };
 		46921D6C14525CE200FA108E /* UIScreen+iOSAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+iOSAddtions.m"; sourceTree = "<group>"; };
 		46921D6F14525CF500FA108E /* UIImage+iOSAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+iOSAddtions.h"; sourceTree = "<group>"; };
@@ -1048,8 +1044,6 @@
 			children = (
 				46921D6314525CC000FA108E /* UIColor+iOSAddtions.h */,
 				46921D6414525CC000FA108E /* UIColor+iOSAddtions.m */,
-				46921D6714525CD300FA108E /* UIDevice+iOSAddtions.h */,
-				46921D6814525CD300FA108E /* UIDevice+iOSAddtions.m */,
 				46921D6B14525CE200FA108E /* UIScreen+iOSAddtions.h */,
 				46921D6C14525CE200FA108E /* UIScreen+iOSAddtions.m */,
 				46921D6F14525CF500FA108E /* UIImage+iOSAddtions.h */,
@@ -1427,7 +1421,6 @@
 				46921D5D14525C8400FA108E /* NSURL+iOSAddtions.h in Headers */,
 				46921D6114525C9C00FA108E /* NSData+iOSAddtions.h in Headers */,
 				46921D6514525CC000FA108E /* UIColor+iOSAddtions.h in Headers */,
-				46921D6914525CD300FA108E /* UIDevice+iOSAddtions.h in Headers */,
 				46921D6D14525CE200FA108E /* UIScreen+iOSAddtions.h in Headers */,
 				46921D7114525CF500FA108E /* UIImage+iOSAddtions.h in Headers */,
 				46921D7514525D0D00FA108E /* UIApplication+iOSAddtions.h in Headers */,
@@ -1636,7 +1629,6 @@
 				46921D5E14525C8400FA108E /* NSURL+iOSAddtions.m in Sources */,
 				46921D6214525C9C00FA108E /* NSData+iOSAddtions.m in Sources */,
 				46921D6614525CC000FA108E /* UIColor+iOSAddtions.m in Sources */,
-				46921D6A14525CD300FA108E /* UIDevice+iOSAddtions.m in Sources */,
 				46921D6E14525CE200FA108E /* UIScreen+iOSAddtions.m in Sources */,
 				46921D7214525CF500FA108E /* UIImage+iOSAddtions.m in Sources */,
 				46921D7614525D0D00FA108E /* UIApplication+iOSAddtions.m in Sources */,
