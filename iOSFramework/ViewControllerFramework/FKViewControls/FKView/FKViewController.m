@@ -43,7 +43,7 @@
 {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper-alt.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper 3.png"]]];
 }
 
 
