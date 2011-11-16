@@ -303,6 +303,12 @@
 		46B5EBD2144DA6170095B88E /* iOSFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E2E6D9144920A900EC0AC0 /* iOSFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46BF38681451C62300BEF303 /* ObjectMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = 46BF38661451C62200BEF303 /* ObjectMapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46BF38691451C62300BEF303 /* ObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF38671451C62200BEF303 /* ObjectMapping.m */; };
+		46C8E63814734F900098BDCE /* UIDevice-Capabilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C8E62E14734F900098BDCE /* UIDevice-Capabilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46C8E63914734F900098BDCE /* UIDevice-Capabilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C8E62F14734F900098BDCE /* UIDevice-Capabilities.m */; };
+		46C8E63A14734F900098BDCE /* UIDevice-Hardware.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C8E63014734F900098BDCE /* UIDevice-Hardware.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46C8E63B14734F900098BDCE /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C8E63114734F900098BDCE /* UIDevice-Hardware.m */; };
+		46C8E63E14734F900098BDCE /* UIDevice-Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C8E63414734F900098BDCE /* UIDevice-Orientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46C8E63F14734F900098BDCE /* UIDevice-Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C8E63514734F900098BDCE /* UIDevice-Orientation.m */; };
 		46E2E6D5144920A900EC0AC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E2E6D4144920A900EC0AC0 /* Foundation.framework */; };
 		46E2E7101449389800EC0AC0 /* ASIAuthenticationDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E2E6E81449389800EC0AC0 /* ASIAuthenticationDialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46E2E7111449389800EC0AC0 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E2E6E91449389800EC0AC0 /* ASIAuthenticationDialog.m */; };
@@ -638,6 +644,12 @@
 		46BF385814519C0600BEF303 /* testData */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testData; sourceTree = "<group>"; };
 		46BF38661451C62200BEF303 /* ObjectMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectMapping.h; sourceTree = "<group>"; };
 		46BF38671451C62200BEF303 /* ObjectMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectMapping.m; sourceTree = "<group>"; };
+		46C8E62E14734F900098BDCE /* UIDevice-Capabilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Capabilities.h"; sourceTree = "<group>"; };
+		46C8E62F14734F900098BDCE /* UIDevice-Capabilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Capabilities.m"; sourceTree = "<group>"; };
+		46C8E63014734F900098BDCE /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
+		46C8E63114734F900098BDCE /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
+		46C8E63414734F900098BDCE /* UIDevice-Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Orientation.h"; sourceTree = "<group>"; };
+		46C8E63514734F900098BDCE /* UIDevice-Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Orientation.m"; sourceTree = "<group>"; };
 		46E2E6D1144920A900EC0AC0 /* libiOSFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E2E6D4144920A900EC0AC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		46E2E6D8144920A900EC0AC0 /* iOSFramework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSFramework-Prefix.pch"; sourceTree = "<group>"; };
@@ -1042,6 +1054,12 @@
 		46921D4514525AE700FA108E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				46C8E62E14734F900098BDCE /* UIDevice-Capabilities.h */,
+				46C8E62F14734F900098BDCE /* UIDevice-Capabilities.m */,
+				46C8E63014734F900098BDCE /* UIDevice-Hardware.h */,
+				46C8E63114734F900098BDCE /* UIDevice-Hardware.m */,
+				46C8E63414734F900098BDCE /* UIDevice-Orientation.h */,
+				46C8E63514734F900098BDCE /* UIDevice-Orientation.m */,
 				46921D6314525CC000FA108E /* UIColor+iOSAddtions.h */,
 				46921D6414525CC000FA108E /* UIColor+iOSAddtions.m */,
 				46921D6B14525CE200FA108E /* UIScreen+iOSAddtions.h */,
@@ -1532,6 +1550,9 @@
 				46910627146C1C4000059819 /* TTTOrdinalNumberFormatter.h in Headers */,
 				46910629146C1C4000059819 /* TTTTimeIntervalFormatter.h in Headers */,
 				4691062B146C1C4000059819 /* TTTURLRequestFormatter.h in Headers */,
+				46C8E63814734F900098BDCE /* UIDevice-Capabilities.h in Headers */,
+				46C8E63A14734F900098BDCE /* UIDevice-Hardware.h in Headers */,
+				46C8E63E14734F900098BDCE /* UIDevice-Orientation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1739,6 +1760,9 @@
 				46910628146C1C4000059819 /* TTTOrdinalNumberFormatter.m in Sources */,
 				4691062A146C1C4000059819 /* TTTTimeIntervalFormatter.m in Sources */,
 				4691062C146C1C4000059819 /* TTTURLRequestFormatter.m in Sources */,
+				46C8E63914734F900098BDCE /* UIDevice-Capabilities.m in Sources */,
+				46C8E63B14734F900098BDCE /* UIDevice-Hardware.m in Sources */,
+				46C8E63F14734F900098BDCE /* UIDevice-Orientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,10 @@
 
 //UIKit
 #import "UIColor+iOSAddtions.h"
-#import "UIDevice+iOSAddtions.h"
+//#import "UIDevice+iOSAddtions.h"
+#import "UIDevice-Hardware.h"
+#import "UIDevice-Capabilities.h"
+#import "UIDevice-Orientation.h"
 #import "UIScreen+iOSAddtions.h"
 #import "UIImage+iOSAddtions.h"
 #import "UIApplication+iOSAddtions.h"
