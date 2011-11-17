@@ -11,6 +11,8 @@
 		18682F2D14691C620046702A /* UserDefaultHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18682F2B14691C620046702A /* UserDefaultHelper.m */; };
 		18E48502146B5A1A0058065B /* FKAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18E48500146B5A1A0058065B /* FKAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18E48503146B5A1A0058065B /* FKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E48501146B5A1A0058065B /* FKAlertView.m */; };
+		18E757BF1474BBEB000A4B20 /* FKObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 18E757BD1474BBEB000A4B20 /* FKObject.h */; };
+		18E757C01474BBEB000A4B20 /* FKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E757BE1474BBEB000A4B20 /* FKObject.m */; };
 		18EF2B26146780FB00CA8C68 /* FKAutoHeightImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 18EF2B24146780FB00CA8C68 /* FKAutoHeightImageCell.h */; };
 		18EF2B27146780FB00CA8C68 /* FKAutoHeightImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF2B25146780FB00CA8C68 /* FKAutoHeightImageCell.m */; };
 		18EF2B561467D1CF00CA8C68 /* FKRefreshTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18EF2B541467D1CF00CA8C68 /* FKRefreshTableView.h */; };
@@ -246,8 +248,6 @@
 		46973330146972E80074EAF3 /* UICGStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 46973322146972E80074EAF3 /* UICGStep.m */; };
 		469FEE571453CFCD00B0AFAE /* MsgAlertHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 469FEE551453CFCD00B0AFAE /* MsgAlertHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		469FEE581453CFCD00B0AFAE /* MsgAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 469FEE561453CFCD00B0AFAE /* MsgAlertHelper.m */; };
-		469FEE5B1453DA2B00B0AFAE /* DFObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 469FEE591453DA2B00B0AFAE /* DFObject.h */; };
-		469FEE5C1453DA2B00B0AFAE /* DFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 469FEE5A1453DA2B00B0AFAE /* DFObject.m */; };
 		46A6130F144B1CC8001021CB /* ObjectLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 46A6130D144B1CC8001021CB /* ObjectLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46A61310144B1CC8001021CB /* ObjectLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A6130E144B1CC8001021CB /* ObjectLoader.m */; };
 		46A6131C144B1E51001021CB /* OOCLTabBarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 46A6131A144B1E51001021CB /* OOCLTabBarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -350,6 +350,8 @@
 		18682F2B14691C620046702A /* UserDefaultHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultHelper.m; sourceTree = "<group>"; };
 		18E48500146B5A1A0058065B /* FKAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAlertView.h; sourceTree = "<group>"; };
 		18E48501146B5A1A0058065B /* FKAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAlertView.m; sourceTree = "<group>"; };
+		18E757BD1474BBEB000A4B20 /* FKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKObject.h; sourceTree = "<group>"; };
+		18E757BE1474BBEB000A4B20 /* FKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKObject.m; sourceTree = "<group>"; };
 		18EF2B24146780FB00CA8C68 /* FKAutoHeightImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAutoHeightImageCell.h; sourceTree = "<group>"; };
 		18EF2B25146780FB00CA8C68 /* FKAutoHeightImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAutoHeightImageCell.m; sourceTree = "<group>"; };
 		18EF2B541467D1CF00CA8C68 /* FKRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKRefreshTableView.h; sourceTree = "<group>"; };
@@ -587,8 +589,6 @@
 		469FEE4E1453B87400B0AFAE /* testDataEx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testDataEx; sourceTree = "<group>"; };
 		469FEE551453CFCD00B0AFAE /* MsgAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgAlertHelper.h; sourceTree = "<group>"; };
 		469FEE561453CFCD00B0AFAE /* MsgAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgAlertHelper.m; sourceTree = "<group>"; };
-		469FEE591453DA2B00B0AFAE /* DFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFObject.h; sourceTree = "<group>"; };
-		469FEE5A1453DA2B00B0AFAE /* DFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFObject.m; sourceTree = "<group>"; };
 		46A6130D144B1CC8001021CB /* ObjectLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectLoader.h; sourceTree = "<group>"; };
 		46A6130E144B1CC8001021CB /* ObjectLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectLoader.m; sourceTree = "<group>"; };
 		46A6131A144B1E51001021CB /* OOCLTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OOCLTabBarItem.h; sourceTree = "<group>"; };
@@ -1342,8 +1342,8 @@
 				4652F81314510D58009FDB0B /* RequestParam.m */,
 				46BF38661451C62200BEF303 /* ObjectMapping.h */,
 				46BF38671451C62200BEF303 /* ObjectMapping.m */,
-				469FEE591453DA2B00B0AFAE /* DFObject.h */,
-				469FEE5A1453DA2B00B0AFAE /* DFObject.m */,
+				18E757BD1474BBEB000A4B20 /* FKObject.h */,
+				18E757BE1474BBEB000A4B20 /* FKObject.m */,
 			);
 			path = ServiceFramework;
 			sourceTree = "<group>";
@@ -1444,7 +1444,6 @@
 				46921D7514525D0D00FA108E /* UIApplication+iOSAddtions.h in Headers */,
 				46921D8E1452808900FA108E /* KeyChainUtils.h in Headers */,
 				469FEE571453CFCD00B0AFAE /* MsgAlertHelper.h in Headers */,
-				469FEE5B1453DA2B00B0AFAE /* DFObject.h in Headers */,
 				46895DAD145ED4300076F17E /* FKTableViewCell.h in Headers */,
 				46895DB1145ED4BD0076F17E /* FKTableView.h in Headers */,
 				46AD983714641A9400B7E233 /* FKAutoHeightCell.h in Headers */,
@@ -1553,6 +1552,7 @@
 				46C8E63814734F900098BDCE /* UIDevice-Capabilities.h in Headers */,
 				46C8E63A14734F900098BDCE /* UIDevice-Hardware.h in Headers */,
 				46C8E63E14734F900098BDCE /* UIDevice-Orientation.h in Headers */,
+				18E757BF1474BBEB000A4B20 /* FKObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1655,7 +1655,6 @@
 				46921D7614525D0D00FA108E /* UIApplication+iOSAddtions.m in Sources */,
 				46921D8F1452808900FA108E /* KeyChainUtils.m in Sources */,
 				469FEE581453CFCD00B0AFAE /* MsgAlertHelper.m in Sources */,
-				469FEE5C1453DA2B00B0AFAE /* DFObject.m in Sources */,
 				46895DAE145ED4300076F17E /* FKTableViewCell.m in Sources */,
 				46895DB2145ED4BD0076F17E /* FKTableView.m in Sources */,
 				46AD983814641A9400B7E233 /* FKAutoHeightCell.m in Sources */,
@@ -1763,6 +1762,7 @@
 				46C8E63914734F900098BDCE /* UIDevice-Capabilities.m in Sources */,
 				46C8E63B14734F900098BDCE /* UIDevice-Hardware.m in Sources */,
 				46C8E63F14734F900098BDCE /* UIDevice-Orientation.m in Sources */,
+				18E757C01474BBEB000A4B20 /* FKObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
