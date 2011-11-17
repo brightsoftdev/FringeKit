@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RequestParam.h"
+#import "FKObject.h"
 
 @class ObjectRelationship;
 
@@ -15,7 +16,9 @@
 
 @optional
 - (void) didLoadDictionaryFinished:(NSDictionary *) result;
-- (void) didLoadObjectFinished:(id) result;
+- (void) didLoadObjectFinished:(FKObject *) result;
+//- (void) didLoadObjectFinished:(id) result;
+//- (void) didLoadObjectFinishedWithFKObject:(FKObject *) result;
 
 @required
 - (void) didLoadObjectFailed:(NSError *) error;

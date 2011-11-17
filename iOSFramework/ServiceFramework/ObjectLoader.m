@@ -70,11 +70,16 @@ static ObjectLoader *sharedObjectLoader;
     }
     
     NSDictionary *jsonObject = [jsonString JSONValue];
+    
+    FKObject *fkObject = [[[FKObject alloc] init] autorelease];
+    fkObject.responseValue = jsonObject;
+    fkObject.responseHeader = nil;
+    
     if ([_delegate respondsToSelector:@selector(didLoadDictionaryFinished:)]) {
-        [_delegate performSelector:@selector(didLoadDictionaryFinished:) withObject:jsonObject];
+        [_delegate performSelector:@selector(didLoadDictionaryFinished:) withObject:fkObject];
     }
     else if ([_delegate respondsToSelector:_didLoadDictionaryFinishedSelector]) {
-        [_delegate performSelector:_didLoadDictionaryFinishedSelector withObject:jsonObject];
+        [_delegate performSelector:_didLoadDictionaryFinishedSelector withObject:fkObject];
     }
 }
 
@@ -110,11 +115,15 @@ static ObjectLoader *sharedObjectLoader;
     if (jsonObject) {
         id resultObject = [self performMapping: jsonObject];
         
+        FKObject *fkObject = [[[FKObject alloc] init] autorelease];
+        fkObject.responseValue = resultObject;
+        fkObject.responseHeader = nil;
+        
         if ([_delegate respondsToSelector:@selector(didLoadObjectFinished:)]) {
-            [_delegate performSelector:@selector(didLoadObjectFinished:) withObject:resultObject];
+            [_delegate performSelector:@selector(didLoadObjectFinished:) withObject:fkObject];
         }
         else if ([_delegate respondsToSelector:_didLoadObjectFinishedSelector]) {
-            [_delegate performSelector:_didLoadObjectFinishedSelector withObject:resultObject];
+            [_delegate performSelector:_didLoadObjectFinishedSelector withObject:fkObject];
         }
 	} else {
         if ([_delegate respondsToSelector:@selector(didLoadObjectFailed:)]) {
@@ -171,11 +180,15 @@ static ObjectLoader *sharedObjectLoader;
     if (jsonObject) {
         id resultObject = [self performMapping: jsonObject];
         
+        FKObject *fkObject = [[[FKObject alloc] init] autorelease];
+        fkObject.responseValue = resultObject;
+        fkObject.responseHeader = request.responseHeaders;
+        
         if ([_delegate respondsToSelector:@selector(didLoadObjectFinished:)]) {
-            [_delegate performSelector:@selector(didLoadObjectFinished:) withObject:resultObject];
+            [_delegate performSelector:@selector(didLoadObjectFinished:) withObject:fkObject];
         }
         else if ([_delegate respondsToSelector:_didLoadObjectFinishedSelector]){
-            [_delegate performSelector:_didLoadObjectFinishedSelector withObject:resultObject];
+            [_delegate performSelector:_didLoadObjectFinishedSelector withObject:fkObject];
         }
 	} else {
         if ([_delegate respondsToSelector:@selector(didLoadObjectFailed:)]) {
@@ -223,11 +236,16 @@ static ObjectLoader *sharedObjectLoader;
     }
 	
     if (jsonObject) {
+        
+        FKObject *fkObject = [[[FKObject alloc] init] autorelease];
+        fkObject.responseValue = jsonObject;
+        fkObject.responseHeader = request.responseHeaders;
+        
         if ([_delegate respondsToSelector:@selector(didLoadDictionaryFinished:)]) {
-            [_delegate performSelector:@selector(didLoadDictionaryFinished:) withObject:jsonObject];
+            [_delegate performSelector:@selector(didLoadDictionaryFinished:) withObject:fkObject];
         }
         else if ([_delegate respondsToSelector:_didLoadDictionaryFinishedSelector]) {
-            [_delegate performSelector:_didLoadDictionaryFinishedSelector withObject:jsonObject];
+            [_delegate performSelector:_didLoadDictionaryFinishedSelector withObject:fkObject];
         }
 	} else {
         NSError *error = [[NSError alloc] initWithDomain:@"" code:1002 userInfo:nil];

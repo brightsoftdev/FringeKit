@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FKObject : NSObject
+@interface FKObject : NSObject{
+    
+}
+
+@property (nonatomic, retain) NSDictionary *responseHeader;
+@property (nonatomic, retain) id responseValue;
 
 @end

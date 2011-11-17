@@ -11,7 +11,7 @@
 		18682F2D14691C620046702A /* UserDefaultHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18682F2B14691C620046702A /* UserDefaultHelper.m */; };
 		18E48502146B5A1A0058065B /* FKAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18E48500146B5A1A0058065B /* FKAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18E48503146B5A1A0058065B /* FKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E48501146B5A1A0058065B /* FKAlertView.m */; };
-		18E757BF1474BBEB000A4B20 /* FKObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 18E757BD1474BBEB000A4B20 /* FKObject.h */; };
+		18E757BF1474BBEB000A4B20 /* FKObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 18E757BD1474BBEB000A4B20 /* FKObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18E757C01474BBEB000A4B20 /* FKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E757BE1474BBEB000A4B20 /* FKObject.m */; };
 		18EF2B26146780FB00CA8C68 /* FKAutoHeightImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 18EF2B24146780FB00CA8C68 /* FKAutoHeightImageCell.h */; };
 		18EF2B27146780FB00CA8C68 /* FKAutoHeightImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF2B25146780FB00CA8C68 /* FKAutoHeightImageCell.m */; };
