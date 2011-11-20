@@ -744,6 +744,7 @@
 		46895DA6145ED33A0076F17E /* FKViewControls */ = {
 			isa = PBXGroup;
 			children = (
+				46BB8CDC14794027001B01A0 /* FKCalendarView */,
 				469105E5146C086900059819 /* FKPunchScrollView */,
 				46973307146962270074EAF3 /* FKMapRouteLayerView */,
 				460FB31214657C1E003254C6 /* FKView */,
@@ -1196,6 +1197,13 @@
 				46B51A63145193AE00F2DE98 /* FMResultSet.m */,
 			);
 			path = SqliteFramework;
+			sourceTree = "<group>";
+		};
+		46BB8CDC14794027001B01A0 /* FKCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FKCalendarView;
 			sourceTree = "<group>";
 		};
 		46E2E6C6144920A800EC0AC0 = {

@@ -41,4 +41,6 @@
 + (NSString *)timestampFormatString;
 + (NSString *)dbFormatString;
 
+- (BOOL) isSameDay:(NSDate*)anotherDate;
+
 @end
