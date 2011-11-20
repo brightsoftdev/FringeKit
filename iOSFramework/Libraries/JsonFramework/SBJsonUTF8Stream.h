@@ -37,7 +37,6 @@
     const char *_bytes;
     NSMutableData *_data;
     NSUInteger _length;
-    NSUInteger _index;
 }
 
 @property (assign) NSUInteger index;
@@ -52,7 +51,7 @@
 
 - (BOOL)getUnichar:(unichar*)ch;
 - (BOOL)getNextUnichar:(unichar*)ch;
-- (BOOL)getSimpleString:(NSString**)string;
+- (BOOL)getRetainedStringFragment:(NSString**)string;
 
 - (NSString*)stringWithRange:(NSRange)range;
 

@@ -37,17 +37,6 @@
 @synthesize maxDepth;
 @synthesize error;
 
-static SBJsonParser * sharedInstance;
-
-+ (SBJsonParser *) sharedInstance {
-	@synchronized(self) {
-		if (!sharedInstance) {
-			sharedInstance = [[SBJsonParser alloc] init];
-		}
-	}
-	return sharedInstance;
-}
-
 - (id)init {
     self = [super init];
     if (self)
@@ -55,10 +44,6 @@ static SBJsonParser * sharedInstance;
     return self;
 }
 
-- (void)dealloc {
-    [error release];
-    [super dealloc];
-}
 
 #pragma mark Methods
 
@@ -69,12 +54,12 @@ static SBJsonParser * sharedInstance;
         return nil;
     }
 
-	SBJsonStreamParserAccumulator *accumulator = [[[SBJsonStreamParserAccumulator alloc] init] autorelease];
+	SBJsonStreamParserAccumulator *accumulator = [[SBJsonStreamParserAccumulator alloc] init];
     
-    SBJsonStreamParserAdapter *adapter = [[[SBJsonStreamParserAdapter alloc] init] autorelease];
+    SBJsonStreamParserAdapter *adapter = [[SBJsonStreamParserAdapter alloc] init];
     adapter.delegate = accumulator;
 	
-	SBJsonStreamParser *parser = [[[SBJsonStreamParser alloc] init] autorelease];
+	SBJsonStreamParser *parser = [[SBJsonStreamParser alloc] init];
 	parser.maxDepth = self.maxDepth;
 	parser.delegate = adapter;
 	

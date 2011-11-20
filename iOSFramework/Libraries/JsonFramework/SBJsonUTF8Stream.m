@@ -44,10 +44,6 @@
     return self;
 }
 
-- (void)dealloc {
-    [_data release];
-    [super dealloc];
-}
 
 - (void)appendData:(NSData *)data_ {
     
@@ -62,7 +58,7 @@
     [_data appendData:data_];
     
     // This is an optimisation. 
-    _bytes = [_data bytes];
+    _bytes = (const char*)[_data bytes];
     _length = [_data length];
 }
 
@@ -83,14 +79,14 @@
     return NO;
 }
 
-- (BOOL)getSimpleString:(NSString **)string {
+- (BOOL)getRetainedStringFragment:(NSString **)string {
     NSUInteger start = _index;
     while (_index < _length) {
         switch (_bytes[_index]) {
             case '"':
             case '\\':
             case 0 ... 0x1f:
-                *string = [[[NSString alloc] initWithBytes:(_bytes + start) length:(_index - start) encoding:NSUTF8StringEncoding] autorelease];
+                *string = [[NSString alloc] initWithBytes:(_bytes + start) length:(_index - start) encoding:NSUTF8StringEncoding];
                 return YES;
                 break;
             default:
@@ -126,7 +122,7 @@
 }
 
 - (BOOL)skipCharacters:(const char *)chars length:(NSUInteger)len {
-    const void *bytes = [_data bytes] + _index;
+    const void *bytes = ((const char*)[_data bytes]) + _index;
     if (!memcmp(bytes, chars, len)) {
         _index += len;
         return YES;
@@ -135,7 +131,7 @@
 }
 
 - (NSString*)stringWithRange:(NSRange)range {
-    return [[[NSString alloc] initWithBytes:_bytes + range.location length:range.length encoding:NSUTF8StringEncoding] autorelease];
+    return [[NSString alloc] initWithBytes:_bytes + range.location length:range.length encoding:NSUTF8StringEncoding];
     
 }
 

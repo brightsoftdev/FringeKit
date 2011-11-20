@@ -33,8 +33,11 @@
 #import "SBJsonStreamWriter.h"
 #import "SBJsonStreamWriterState.h"
 
-static NSDecimalNumber *kNotANumber;
-static id kStaticStringCache;
+static NSNumber *kNotANumber;
+static NSNumber *kTrue;
+static NSNumber *kFalse;
+static NSNumber *kPositiveInfinity;
+static NSNumber *kNegativeInfinity;
 
 
 @implementation SBJsonStreamWriter
@@ -48,16 +51,10 @@ static id kStaticStringCache;
 
 + (void)initialize {
 	kNotANumber = [NSDecimalNumber notANumber];
-    
-    Class cacheClass = NSClassFromString(@"NSCache");
-    if (cacheClass) {
-        NSLog(@"%s NSCache supported", __FUNCTION__);
-        kStaticStringCache = [[cacheClass alloc] init];
-    }else {
-        NSLog(@"%s NSCache not supported", __FUNCTION__);
-    }
-
-    
+    kPositiveInfinity = [NSNumber numberWithDouble:+INFINITY];
+    kNegativeInfinity = [NSNumber numberWithDouble:-INFINITY];
+    kTrue = [NSNumber numberWithBool:YES];
+    kFalse = [NSNumber numberWithBool:NO];
 }
 
 #pragma mark Housekeeping
@@ -70,15 +67,13 @@ static id kStaticStringCache;
 		maxDepth = 32u;
         stateStack = [[NSMutableArray alloc] initWithCapacity:maxDepth];
         state = [SBJsonStreamWriterStateStart sharedInstance];
+        cache = [[NSMutableDictionary alloc] initWithCapacity:32];
     }
 	return self;
 }
 
 - (void)dealloc {
-	self.error = nil;
     self.state = nil;
-    [stateStack release];
-	[super dealloc];
 }
 
 #pragma mark Methods
@@ -285,7 +280,7 @@ static const char *strForChar(int c) {
 	[state appendSeparator:self];
 	if (humanReadable) [state appendWhitespace:self];
 
-	NSMutableData *buf = [kStaticStringCache objectForKey:string];
+	NSMutableData *buf = [cache objectForKey:string];
 	if (!buf) {
 
         NSUInteger len = [string lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
@@ -312,7 +307,7 @@ static const char *strForChar(int c) {
             [buf appendBytes:utf8 + written length:i - written];
 
         [buf appendBytes:"\"" length:1];
-        [kStaticStringCache setObject:buf forKey:string];
+        [cache setObject:buf forKey:string];
     }
 
 	[delegate writer:self appendBytes:[buf bytes] length:[buf length]];
@@ -321,7 +316,7 @@ static const char *strForChar(int c) {
 }
 
 - (BOOL)writeNumber:(NSNumber*)number {
-	if ((CFBooleanRef)number == kCFBooleanTrue || (CFBooleanRef)number == kCFBooleanFalse)
+	if (number == kTrue || number == kFalse)
 		return [self writeBool:[number boolValue]];
 
 	if ([state isInvalidState:self]) return NO;
@@ -329,19 +324,15 @@ static const char *strForChar(int c) {
 	[state appendSeparator:self];
 	if (humanReadable) [state appendWhitespace:self];
 
-	if ((CFNumberRef)number == kCFNumberPositiveInfinity) {
+	if ([kPositiveInfinity isEqualToNumber:number]) {
 		self.error = @"+Infinity is not a valid number in JSON";
 		return NO;
 
-	} else if ((CFNumberRef)number == kCFNumberNegativeInfinity) {
+	} else if ([kNegativeInfinity isEqualToNumber:number]) {
 		self.error = @"-Infinity is not a valid number in JSON";
 		return NO;
 
-	} else if ((CFNumberRef)number == kCFNumberNaN) {
-		self.error = @"NaN is not a valid number in JSON";
-		return NO;
-
-	} else if (number == kNotANumber) {
+	} else if ([kNotANumber isEqualToNumber:number]) {
 		self.error = @"NaN is not a valid number in JSON";
 		return NO;
 	}
