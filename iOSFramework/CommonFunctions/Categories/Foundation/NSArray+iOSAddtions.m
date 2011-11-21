@@ -16,40 +16,65 @@
     
     NSMutableArray *tempCollectionArray = [[NSMutableArray alloc] initWithArray:self];
     NSMutableArray *collection = [[NSMutableArray alloc] init];
+    NSMutableArray *collectionWithEngChar = [[NSMutableArray alloc] init];
     [collection removeAllObjects];
     NSArray *arrIndexes = [NSArray arrayWithArray:
-                           [@"A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"
+                           [@"A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,#"
                             componentsSeparatedByString:@","]];
     for (NSString *indexString in arrIndexes) {
-        NSPredicate *groupPredicate = [NSPredicate predicateWithFormat:@"self.%@ BEGINSWITH %@", groupString, indexString];
+        NSPredicate *groupPredicate = [NSPredicate predicateWithFormat:@"self.%@ BEGINSWITH[c] %@", groupString, indexString];
         
         NSArray *group = [tempCollectionArray filteredArrayUsingPredicate: groupPredicate];
+        [collectionWithEngChar addObjectsFromArray:group];
+        
         if ([group count] > 0) {
             NSDictionary *groupDict = [NSDictionary dictionaryWithObject:group forKey:indexString];
             [collection addObject:groupDict];
             [tempCollectionArray removeObjectsInArray:group];
         }
     }
+    
+    NSPredicate *thePredicate = [NSPredicate predicateWithFormat:@"NOT (SELF in %@)", collectionWithEngChar];
+    
+    //NSLog(@"filtered collection: %@", [tempCollectionArray filteredArrayUsingPredicate:thePredicate]);
+    NSArray *collectionWithNotEng = [tempCollectionArray filteredArrayUsingPredicate:thePredicate];
+    NSDictionary *dicWithNotEng = [[NSDictionary alloc] initWithObjectsAndKeys:collectionWithNotEng, @"#", nil];
+    [collection addObject:dicWithNotEng];
+    
+    [dicWithNotEng release];
     [tempCollectionArray release];
+    [collectionWithEngChar release];
     return collection;
 }
 
 - (NSDictionary *) groupArrayAsDictionaryByField: (NSString *) groupString{
     NSMutableArray *tempCollectionArray = [[NSMutableArray alloc] initWithArray:self];
     NSMutableDictionary *collection = [[NSMutableDictionary alloc] init];
+    
+    NSMutableArray *collectionWithEngChar = [[NSMutableArray alloc] init];
+    
     [collection removeAllObjects];
     NSArray *arrIndexes = [NSArray arrayWithArray:
-                           [@"A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"
+                           [@"A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,#"
                             componentsSeparatedByString:@","]];
     for (NSString *indexString in arrIndexes) {
-        NSPredicate *groupPredicate = [NSPredicate predicateWithFormat:@"self.%@ BEGINSWITH %@", groupString, indexString];
+        NSPredicate *groupPredicate = [NSPredicate predicateWithFormat:@"self.%@ BEGINSWITH[c] %@", groupString, indexString];
         
         NSArray *group = [tempCollectionArray filteredArrayUsingPredicate: groupPredicate];
+        NSLog(@"in: %@", group);
+        
         if ([group count] > 0) {
             [collection setObject:group forKey:indexString];
             [tempCollectionArray removeObjectsInArray:group];
         }
     }
+    
+    NSPredicate *thePredicate = [NSPredicate predicateWithFormat:@"NOT (SELF in %@)", collectionWithEngChar];
+    
+    NSArray *collectionWithNotEng = [tempCollectionArray filteredArrayUsingPredicate:thePredicate];
+    [collection setObject:collectionWithNotEng forKey:@"#"];
+    
+    [collectionWithEngChar release];
     [tempCollectionArray release];
     return collection;
 }
