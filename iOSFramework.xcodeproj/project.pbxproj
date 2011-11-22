@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181F126B147B3CD50076D50B /* FKMultiColumnCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 181F1269147B3CD50076D50B /* FKMultiColumnCell.h */; };
+		181F126C147B3CD50076D50B /* FKMultiColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F126A147B3CD50076D50B /* FKMultiColumnCell.m */; };
 		18682F2C14691C620046702A /* UserDefaultHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 18682F2A14691C620046702A /* UserDefaultHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18682F2D14691C620046702A /* UserDefaultHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18682F2B14691C620046702A /* UserDefaultHelper.m */; };
 		18E48502146B5A1A0058065B /* FKAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18E48500146B5A1A0058065B /* FKAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -346,6 +348,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181F1269147B3CD50076D50B /* FKMultiColumnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKMultiColumnCell.h; sourceTree = "<group>"; };
+		181F126A147B3CD50076D50B /* FKMultiColumnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKMultiColumnCell.m; sourceTree = "<group>"; };
 		18682F2A14691C620046702A /* UserDefaultHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultHelper.h; sourceTree = "<group>"; };
 		18682F2B14691C620046702A /* UserDefaultHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultHelper.m; sourceTree = "<group>"; };
 		18E48500146B5A1A0058065B /* FKAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAlertView.h; sourceTree = "<group>"; };
@@ -712,6 +716,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181F1267147B3CB70076D50B /* FKMultiColumnCell */ = {
+			isa = PBXGroup;
+			children = (
+				181F1269147B3CD50076D50B /* FKMultiColumnCell.h */,
+				181F126A147B3CD50076D50B /* FKMultiColumnCell.m */,
+			);
+			path = FKMultiColumnCell;
+			sourceTree = "<group>";
+		};
 		18EF2B22146780C200CA8C68 /* FKAutoHeightImageCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -767,6 +780,7 @@
 		46895DA8145ED33A0076F17E /* FKTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				181F1267147B3CB70076D50B /* FKMultiColumnCell */,
 				18EF2B22146780C200CA8C68 /* FKAutoHeightImageCell */,
 				46AD983314641A6300B7E233 /* FKAutoHeightCell */,
 				46895DAB145ED4300076F17E /* FKTableViewCell.h */,
@@ -1561,6 +1575,7 @@
 				46C8E63A14734F900098BDCE /* UIDevice-Hardware.h in Headers */,
 				46C8E63E14734F900098BDCE /* UIDevice-Orientation.h in Headers */,
 				18E757BF1474BBEB000A4B20 /* FKObject.h in Headers */,
+				181F126B147B3CD50076D50B /* FKMultiColumnCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1771,6 +1786,7 @@
 				46C8E63B14734F900098BDCE /* UIDevice-Hardware.m in Sources */,
 				46C8E63F14734F900098BDCE /* UIDevice-Orientation.m in Sources */,
 				18E757C01474BBEB000A4B20 /* FKObject.m in Sources */,
+				181F126C147B3CD50076D50B /* FKMultiColumnCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
